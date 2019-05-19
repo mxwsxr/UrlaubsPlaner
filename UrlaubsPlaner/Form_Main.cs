@@ -65,5 +65,10 @@ namespace UrlaubsPlaner
         private void Label1_Click_2(object sender, EventArgs e)
         {
         }
+
+        private void Combobox_absencetype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
