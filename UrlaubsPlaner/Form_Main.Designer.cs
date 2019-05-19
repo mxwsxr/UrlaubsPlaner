@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Krankmeldung");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Urlaub");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Hochschule/BS");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.gp_calendar = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -69,7 +72,7 @@
             // 
             this.listView1.Location = new System.Drawing.Point(6, 454);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(260, 420);
+            this.listView1.Size = new System.Drawing.Size(420, 420);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -81,9 +84,13 @@
             this.absenceType});
             this.listview_event.FullRowSelect = true;
             this.listview_event.GridLines = true;
+            this.listview_event.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3});
             this.listview_event.Location = new System.Drawing.Point(6, 15);
             this.listview_event.Name = "listview_event";
-            this.listview_event.Size = new System.Drawing.Size(260, 420);
+            this.listview_event.Size = new System.Drawing.Size(420, 420);
             this.listview_event.TabIndex = 0;
             this.listview_event.UseCompatibleStateImageBehavior = false;
             // 
@@ -236,6 +243,7 @@
             this.combobox_absencetype.Name = "combobox_absencetype";
             this.combobox_absencetype.Size = new System.Drawing.Size(116, 21);
             this.combobox_absencetype.TabIndex = 13;
+            this.combobox_absencetype.SelectedIndexChanged += new System.EventHandler(this.Combobox_absencetype_SelectedIndexChanged);
             // 
             // Form_Main
             // 
