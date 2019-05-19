@@ -17,7 +17,7 @@ namespace UrlaubsPlaner
         {
             using (var db = new DataBaseContext())
             {
-                // Create and save a new Blog
+                // Create and save a new employee
                 Console.Write("Enter a firstname for a new Employee: ");
                 var firstname = Console.ReadLine();
 
@@ -25,7 +25,7 @@ namespace UrlaubsPlaner
                 db.Employees.Add(employee);
                 db.SaveChanges();
 
-                // Display all Blogs from the database
+                // Display all Employees from the database
                 var query = from e in db.Employees
                             orderby e.Firstname
                             select e;
