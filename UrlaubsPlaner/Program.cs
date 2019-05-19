@@ -17,27 +17,24 @@ namespace UrlaubsPlaner
         {
             using (var db = new DataBaseContext())
             {
-                // Create and save a new employee
-                Console.Write("Enter a firstname for a new Employee: ");
-                var firstname = Console.ReadLine();
+                //var firstname = Console.ReadLine();
 
-                var employee = new Employee { Firstname = firstname };
-                db.Employees.Add(employee);
-                db.SaveChanges();
+                //var employee = new Employee { Firstname = firstname };
+                //db.Employees.Add(employee);
+                //db.SaveChanges();
 
-                // Display all Employees from the database
-                var query = from e in db.Employees
-                            orderby e.Firstname
-                            select e;
+                //var query = from e in db.Employees
+                //            orderby e.Firstname
+                //            select e;
 
-                Console.WriteLine("All blogs in the database:");
-                foreach (var item in query)
-                {
-                    Console.WriteLine(item.Firstname);
-                }
+                //foreach (var item in query)
+                //{
+                //    Console.WriteLine(item.Firstname);
+                //}
 
-                Console.WriteLine("Press any key to exit...");
-                //Console.ReadKey();
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Form_Main() { DbContext = db });
             }
         }
     }
