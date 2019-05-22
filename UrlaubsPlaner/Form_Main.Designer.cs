@@ -126,7 +126,7 @@
             this.gp_input.Controls.Add(this.monthCalendar);
             this.gp_input.Location = new System.Drawing.Point(465, 27);
             this.gp_input.Name = "gp_input";
-            this.gp_input.Size = new System.Drawing.Size(410, 880);
+            this.gp_input.Size = new System.Drawing.Size(407, 880);
             this.gp_input.TabIndex = 1;
             this.gp_input.TabStop = false;
             this.gp_input.Text = "Eingabe";
