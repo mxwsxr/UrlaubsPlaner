@@ -39,6 +39,10 @@
             this.absence = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.absenceType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gp_input = new System.Windows.Forms.GroupBox();
+            this.combobox_absencetype = new System.Windows.Forms.ComboBox();
+            this.label_absencetype = new System.Windows.Forms.Label();
+            this.richtextbox_reason = new System.Windows.Forms.RichTextBox();
+            this.label_reason = new System.Windows.Forms.Label();
             this.label_employeeNumber = new System.Windows.Forms.Label();
             this.label_lastname = new System.Windows.Forms.Label();
             this.label_firstname = new System.Windows.Forms.Label();
@@ -48,10 +52,6 @@
             this.button_cancel = new System.Windows.Forms.Button();
             this.button_save = new System.Windows.Forms.Button();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.label_reason = new System.Windows.Forms.Label();
-            this.richtextbox_reason = new System.Windows.Forms.RichTextBox();
-            this.label_absencetype = new System.Windows.Forms.Label();
-            this.combobox_absencetype = new System.Windows.Forms.ComboBox();
             this.gp_calendar.SuspendLayout();
             this.gp_input.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +62,7 @@
             this.gp_calendar.Controls.Add(this.listview_event);
             this.gp_calendar.Location = new System.Drawing.Point(26, 27);
             this.gp_calendar.Name = "gp_calendar";
-            this.gp_calendar.Size = new System.Drawing.Size(1187, 880);
+            this.gp_calendar.Size = new System.Drawing.Size(433, 880);
             this.gp_calendar.TabIndex = 0;
             this.gp_calendar.TabStop = false;
             this.gp_calendar.Text = "Kalender";
@@ -124,12 +124,52 @@
             this.gp_input.Controls.Add(this.button_cancel);
             this.gp_input.Controls.Add(this.button_save);
             this.gp_input.Controls.Add(this.monthCalendar);
-            this.gp_input.Location = new System.Drawing.Point(1219, 27);
+            this.gp_input.Location = new System.Drawing.Point(465, 27);
             this.gp_input.Name = "gp_input";
             this.gp_input.Size = new System.Drawing.Size(410, 880);
             this.gp_input.TabIndex = 1;
             this.gp_input.TabStop = false;
             this.gp_input.Text = "Eingabe";
+            // 
+            // combobox_absencetype
+            // 
+            this.combobox_absencetype.FormattingEnabled = true;
+            this.combobox_absencetype.Items.AddRange(new object[] {
+            "Urlaub",
+            "Krank",
+            "Hochschule/BS/Weiterbildung"});
+            this.combobox_absencetype.Location = new System.Drawing.Point(282, 96);
+            this.combobox_absencetype.Name = "combobox_absencetype";
+            this.combobox_absencetype.Size = new System.Drawing.Size(116, 21);
+            this.combobox_absencetype.TabIndex = 13;
+            this.combobox_absencetype.SelectedIndexChanged += new System.EventHandler(this.Combobox_absencetype_SelectedIndexChanged);
+            // 
+            // label_absencetype
+            // 
+            this.label_absencetype.AutoSize = true;
+            this.label_absencetype.Location = new System.Drawing.Point(203, 99);
+            this.label_absencetype.Name = "label_absencetype";
+            this.label_absencetype.Size = new System.Drawing.Size(28, 13);
+            this.label_absencetype.TabIndex = 12;
+            this.label_absencetype.Text = "Typ:";
+            // 
+            // richtextbox_reason
+            // 
+            this.richtextbox_reason.Location = new System.Drawing.Point(206, 189);
+            this.richtextbox_reason.Name = "richtextbox_reason";
+            this.richtextbox_reason.Size = new System.Drawing.Size(192, 118);
+            this.richtextbox_reason.TabIndex = 11;
+            this.richtextbox_reason.Text = "";
+            // 
+            // label_reason
+            // 
+            this.label_reason.AutoSize = true;
+            this.label_reason.Location = new System.Drawing.Point(203, 173);
+            this.label_reason.Name = "label_reason";
+            this.label_reason.Size = new System.Drawing.Size(39, 13);
+            this.label_reason.TabIndex = 9;
+            this.label_reason.Text = "Grund:";
+            this.label_reason.Click += new System.EventHandler(this.Label1_Click_2);
             // 
             // label_employeeNumber
             // 
@@ -205,51 +245,11 @@
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 0;
             // 
-            // label_reason
-            // 
-            this.label_reason.AutoSize = true;
-            this.label_reason.Location = new System.Drawing.Point(203, 173);
-            this.label_reason.Name = "label_reason";
-            this.label_reason.Size = new System.Drawing.Size(39, 13);
-            this.label_reason.TabIndex = 9;
-            this.label_reason.Text = "Grund:";
-            this.label_reason.Click += new System.EventHandler(this.Label1_Click_2);
-            // 
-            // richtextbox_reason
-            // 
-            this.richtextbox_reason.Location = new System.Drawing.Point(206, 189);
-            this.richtextbox_reason.Name = "richtextbox_reason";
-            this.richtextbox_reason.Size = new System.Drawing.Size(192, 118);
-            this.richtextbox_reason.TabIndex = 11;
-            this.richtextbox_reason.Text = "";
-            // 
-            // label_absencetype
-            // 
-            this.label_absencetype.AutoSize = true;
-            this.label_absencetype.Location = new System.Drawing.Point(203, 99);
-            this.label_absencetype.Name = "label_absencetype";
-            this.label_absencetype.Size = new System.Drawing.Size(28, 13);
-            this.label_absencetype.TabIndex = 12;
-            this.label_absencetype.Text = "Typ:";
-            // 
-            // combobox_absencetype
-            // 
-            this.combobox_absencetype.FormattingEnabled = true;
-            this.combobox_absencetype.Items.AddRange(new object[] {
-            "Urlaub",
-            "Krank",
-            "Hochschule/BS/Weiterbildung"});
-            this.combobox_absencetype.Location = new System.Drawing.Point(282, 96);
-            this.combobox_absencetype.Name = "combobox_absencetype";
-            this.combobox_absencetype.Size = new System.Drawing.Size(116, 21);
-            this.combobox_absencetype.TabIndex = 13;
-            this.combobox_absencetype.SelectedIndexChanged += new System.EventHandler(this.Combobox_absencetype_SelectedIndexChanged);
-            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1659, 937);
+            this.ClientSize = new System.Drawing.Size(901, 937);
             this.Controls.Add(this.gp_input);
             this.Controls.Add(this.gp_calendar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

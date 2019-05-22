@@ -43,22 +43,31 @@ namespace UrlaubsPlaner
         private void Button_save_Click(object sender, EventArgs e)
         {
             // SELECT a.AbsenceTypeId FROM a AS DbContext.AbsenceTypes WHERE a.Label == combobox_reason.SelectedText;
-            var absenceQuery = from a in DbContext.AbsenceTypes
-                               where a.Label == combobox_absencetype.SelectedText
+            var absenceQuery = from a in DbContext.AbsenceType
+                               where a.Label == (string)combobox_absencetype.SelectedItem
                                select a;
 
             var employeeQuery = from employee in DbContext.Employees
-                                where employee.EmployeeNumber == int.Parse(textbox_employeeNumber.Text)
+                                where employee.EmployeeNumber == int.Parse(textbox_employeeNumber.T)
                                 select employee;
 
-            DbContext.Absences.Add(new Absence()
+            //AbsenceID = new Guid(),
+            //    AbsenceType = absenceQuery.First(),
+            //    Employee = employeeQuery.First(),
+            //    Reason = richtextbox_reason.Text,
+            //    FromDate = monthCalendar.SelectionRange.Start,
+            //    ToDate = monthCalendar.SelectionRange.End
+
+            var absenceId = new Guid();
+            var absenceType = absenceQuery.First();
+            var employee1 = employeeQuery.First();
+            var reason = richtextbox_reason.Text;
+            var fromDate = monthCalendar.SelectionRange.Start;
+            var toDate = monthCalendar.SelectionRange.End;
+
+            DbContext.Absence.Add(new Absence()
             {
-                AbsenceID = new Guid(),
-                AbsenceType = absenceQuery.First(),
-                Employee = employeeQuery.First(),
-                Reason = richtextbox_reason.Text,
-                FromDate = monthCalendar.SelectionRange.Start,
-                ToDate = monthCalendar.SelectionRange.End
+
             });
         }
 
