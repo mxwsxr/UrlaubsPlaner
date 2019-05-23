@@ -155,16 +155,16 @@
             // 
             // richtextbox_reason
             // 
-            this.richtextbox_reason.Location = new System.Drawing.Point(206, 189);
+            this.richtextbox_reason.Location = new System.Drawing.Point(12, 294);
             this.richtextbox_reason.Name = "richtextbox_reason";
-            this.richtextbox_reason.Size = new System.Drawing.Size(192, 118);
+            this.richtextbox_reason.Size = new System.Drawing.Size(389, 118);
             this.richtextbox_reason.TabIndex = 11;
             this.richtextbox_reason.Text = "";
             // 
             // label_reason
             // 
             this.label_reason.AutoSize = true;
-            this.label_reason.Location = new System.Drawing.Point(203, 173);
+            this.label_reason.Location = new System.Drawing.Point(9, 278);
             this.label_reason.Name = "label_reason";
             this.label_reason.Size = new System.Drawing.Size(39, 13);
             this.label_reason.TabIndex = 9;
@@ -222,7 +222,7 @@
             // 
             // button_cancel
             // 
-            this.button_cancel.Location = new System.Drawing.Point(12, 218);
+            this.button_cancel.Location = new System.Drawing.Point(110, 428);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(92, 23);
             this.button_cancel.TabIndex = 2;
@@ -231,7 +231,7 @@
             // 
             // button_save
             // 
-            this.button_save.Location = new System.Drawing.Point(12, 189);
+            this.button_save.Location = new System.Drawing.Point(12, 428);
             this.button_save.Name = "button_save";
             this.button_save.Size = new System.Drawing.Size(92, 23);
             this.button_save.TabIndex = 1;
@@ -241,9 +241,10 @@
             // 
             // monthCalendar
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(12, 15);
+            this.monthCalendar.Location = new System.Drawing.Point(6, 15);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 0;
+            this.monthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalendar_DateChanged);
             // 
             // Form_Main
             // 

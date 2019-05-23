@@ -48,7 +48,7 @@ namespace UrlaubsPlaner
                                select a;
 
             var employeeQuery = from employee in DbContext.Employees
-                                where employee.EmployeeNumber == int.Parse(textbox_employeeNumber.T)
+                                where employee.EmployeeNumber == textbox_employeeNumber.SelectedText
                                 select employee;
 
             //AbsenceID = new Guid(),
@@ -76,6 +76,11 @@ namespace UrlaubsPlaner
         }
 
         private void Combobox_absencetype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MonthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
 
         }
