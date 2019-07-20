@@ -23,14 +23,14 @@ BEGIN
 	VALUES (NEWID(),'Urlaub')
 END
 
-If EXISTS (Select * FROM [dbo].AbscenceType WHERE Label='Krankheit')
+If EXISTS (Select * FROM [dbo].AbscenceType WHERE Label='Krankmeldung')
 BEGIN
 	INSERT INTO [dbo].AbscenceType(AbsenceTypeID,Label)
-	VALUES (NEWID(),'Krankheit')
+	VALUES (NEWID(),'Krankmeldung')
 END
 
-If EXISTS (Select * FROM [dbo].AbscenceType WHERE Label='Sonderurlaub')
+If EXISTS (Select * FROM [dbo].AbscenceType WHERE Label='Hochschule/BS')
 BEGIN
 	INSERT INTO [dbo].AbscenceType(AbsenceTypeID,Label)
-	VALUES (NEWID(),'Sonderurlaub')
+	VALUES (NEWID(),'Hochschule/BS')
 END
