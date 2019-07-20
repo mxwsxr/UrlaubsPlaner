@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Absence]
+(
+	[AbscenceID] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [AbsenceTypeID] UNIQUEIDENTIFIER NOT NULL, 
+    [EmployeeID] UNIQUEIDENTIFIER NOT NULL, 
+    [FromDate] DATE NOT NULL, 
+    [ToDate] DATE NOT NULL, 
+    [Reason] NVARCHAR(MAX) NOT NULL
+)
