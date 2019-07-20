@@ -10,26 +10,26 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-If EXISTS (Select * FROM [dbo].Country WHERE Name='Deutschland')
+If NOT EXISTS (Select * FROM [dbo].Country WHERE Name='Deutschland')
 BEGIN
 	INSERT INTO [dbo].Country (CountryID,Name,Code)
 	VALUES (NEWID(),'Deutschland','DE')
 END
 
 
-If EXISTS (Select * FROM [dbo].AbsenceType WHERE Label='Urlaub')
+If NOT EXISTS (Select * FROM [dbo].AbsenceType WHERE Label='Urlaub')
 BEGIN
 	INSERT INTO [dbo].AbsenceType (AbsenceTypeID,Label)
 	VALUES (NEWID(),'Urlaub')
 END
 
-If EXISTS (Select * FROM [dbo].AbsenceType WHERE Label='Krankmeldung')
+If NOT EXISTS (Select * FROM [dbo].AbsenceType WHERE Label='Krankmeldung')
 BEGIN
 	INSERT INTO [dbo].AbsenceType (AbsenceTypeID,Label)
 	VALUES (NEWID(),'Krankmeldung')
 END
 
-If EXISTS (Select * FROM [dbo].AbsenceType WHERE Label='Hochschule/BS')
+If NOT EXISTS (Select * FROM [dbo].AbsenceType WHERE Label='Hochschule/BS')
 BEGIN
 	INSERT INTO [dbo].AbsenceType (AbsenceTypeID,Label)
 	VALUES (NEWID(),'Hochschule/BS')
