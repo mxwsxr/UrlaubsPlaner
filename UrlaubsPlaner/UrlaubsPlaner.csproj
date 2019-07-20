@@ -66,6 +66,7 @@
     <Compile Include="Entities\AbsenceType.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\EntityTransformations.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Form_Main.cs">
       <SubType>Form</SubType>

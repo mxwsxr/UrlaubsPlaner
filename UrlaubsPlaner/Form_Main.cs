@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UrlaubsPlaner.DBInteraction;
 using UrlaubsPlaner.Entities;
 
 namespace UrlaubsPlaner
 {
     public partial class Form_Main : Form
     {
-        public DataBaseContext DbContext { get; set; }
+        private List<Absence> Absences;
 
         public Form_Main()
         {
@@ -22,7 +23,17 @@ namespace UrlaubsPlaner
 
         private void Form_MainLoad(object sender, EventArgs e)
         {
-
+            Absences = DataBaseConnection.GetAbsences();
+            listview_event.Items.AddRange(Absences.Select(x 
+                => new ListViewItem(new string[] 
+                {
+                    x.Employee.EmployeeNumber.ToString(),
+                    x.Employee.Firstname,
+                    x.Employee.Lastname,
+                    x.AbsenceType.Label,
+                    x.FromDate.ToString(),
+                    x.ToDate.ToString()
+                })).ToArray());
         }
 
         private void GroupBox1_Enter(object sender, EventArgs e)
