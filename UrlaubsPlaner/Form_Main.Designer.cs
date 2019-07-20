@@ -28,16 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Krankmeldung");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Urlaub");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Hochschule/BS");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.gp_calendar = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.listview_event = new System.Windows.Forms.ListView();
-            this.employee = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.absence = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.absenceType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gp_input = new System.Windows.Forms.GroupBox();
             this.combobox_absencetype = new System.Windows.Forms.ComboBox();
             this.label_absencetype = new System.Windows.Forms.Label();
@@ -52,13 +45,18 @@
             this.button_cancel = new System.Windows.Forms.Button();
             this.button_save = new System.Windows.Forms.Button();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
+            this.MitarbeiterNr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Vorname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Nachname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Typ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Von = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Bis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gp_calendar.SuspendLayout();
             this.gp_input.SuspendLayout();
             this.SuspendLayout();
             // 
             // gp_calendar
             // 
-            this.gp_calendar.Controls.Add(this.listView1);
             this.gp_calendar.Controls.Add(this.listview_event);
             this.gp_calendar.Location = new System.Drawing.Point(26, 27);
             this.gp_calendar.Name = "gp_calendar";
@@ -68,47 +66,23 @@
             this.gp_calendar.Text = "Kalender";
             this.gp_calendar.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(13, 454);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(420, 420);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // listview_event
             // 
             this.listview_event.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.employee,
-            this.absence,
-            this.absenceType});
+            this.MitarbeiterNr,
+            this.Vorname,
+            this.Nachname,
+            this.Typ,
+            this.Von,
+            this.Bis});
             this.listview_event.FullRowSelect = true;
             this.listview_event.GridLines = true;
-            this.listview_event.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
-            this.listview_event.Location = new System.Drawing.Point(13, 28);
+            this.listview_event.Location = new System.Drawing.Point(6, 15);
             this.listview_event.Name = "listview_event";
-            this.listview_event.Size = new System.Drawing.Size(420, 420);
+            this.listview_event.Size = new System.Drawing.Size(420, 859);
             this.listview_event.TabIndex = 0;
             this.listview_event.UseCompatibleStateImageBehavior = false;
             this.listview_event.SelectedIndexChanged += new System.EventHandler(this.Listview_event_SelectedIndexChanged);
-            // 
-            // employee
-            // 
-            this.employee.DisplayIndex = 1;
-            this.employee.Text = "Mitarbeiter";
-            // 
-            // absence
-            // 
-            this.absence.DisplayIndex = 2;
-            this.absence.Text = "Abwesenheit";
-            // 
-            // absenceType
-            // 
-            this.absenceType.DisplayIndex = 0;
-            this.absenceType.Text = "Abwesenheitstyp";
             // 
             // gp_input
             // 
@@ -278,14 +252,16 @@
         private System.Windows.Forms.Button button_save;
         private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.ListView listview_event;
-        private System.Windows.Forms.ColumnHeader employee;
-        private System.Windows.Forms.ColumnHeader absence;
-        private System.Windows.Forms.ColumnHeader absenceType;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label_reason;
         private System.Windows.Forms.RichTextBox richtextbox_reason;
         private System.Windows.Forms.ComboBox combobox_absencetype;
         private System.Windows.Forms.Label label_absencetype;
+        private System.Windows.Forms.ColumnHeader MitarbeiterNr;
+        private System.Windows.Forms.ColumnHeader Vorname;
+        private System.Windows.Forms.ColumnHeader Nachname;
+        private System.Windows.Forms.ColumnHeader Typ;
+        private System.Windows.Forms.ColumnHeader Von;
+        private System.Windows.Forms.ColumnHeader Bis;
     }
 }
 
