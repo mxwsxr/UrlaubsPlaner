@@ -17,20 +17,20 @@ BEGIN
 END
 
 
-If EXISTS (Select * FROM [dbo].AbscenceType WHERE Label='Urlaub')
+If EXISTS (Select * FROM [dbo].AbsenceType WHERE Label='Urlaub')
 BEGIN
-	INSERT INTO [dbo].AbscenceType(AbsenceTypeID,Label)
+	INSERT INTO [dbo].AbsenceType (AbsenceTypeID,Label)
 	VALUES (NEWID(),'Urlaub')
 END
 
-If EXISTS (Select * FROM [dbo].AbscenceType WHERE Label='Krankmeldung')
+If EXISTS (Select * FROM [dbo].AbsenceType WHERE Label='Krankmeldung')
 BEGIN
-	INSERT INTO [dbo].AbscenceType(AbsenceTypeID,Label)
+	INSERT INTO [dbo].AbsenceType (AbsenceTypeID,Label)
 	VALUES (NEWID(),'Krankmeldung')
 END
 
-If EXISTS (Select * FROM [dbo].AbscenceType WHERE Label='Hochschule/BS')
+If EXISTS (Select * FROM [dbo].AbsenceType WHERE Label='Hochschule/BS')
 BEGIN
-	INSERT INTO [dbo].AbscenceType(AbsenceTypeID,Label)
+	INSERT INTO [dbo].AbsenceType (AbsenceTypeID,Label)
 	VALUES (NEWID(),'Hochschule/BS')
 END

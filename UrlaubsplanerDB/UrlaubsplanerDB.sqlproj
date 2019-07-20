@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Absence.sql" />
-    <Build Include="Tables\AbscenceType.sql" />
+    <Build Include="Tables\AbsenceType.sql" />
     <Build Include="Tables\Country.sql" />
     <Build Include="Tables\Employee.sql" />
   </ItemGroup>
