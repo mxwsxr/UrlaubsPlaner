@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UrlaubsPlaner.DBInteraction;
 
 namespace UrlaubsPlaner.Entities
 {
@@ -16,6 +17,12 @@ namespace UrlaubsPlaner.Entities
         public DataBaseContext()
         {
             SqlConnection = new SqlConnection(ConnectionString);
+        }
+
+        public T QueryData<T>(Querys query)
+            where T : IEntity
+        {
+
         }
 
         public void Dispose()
