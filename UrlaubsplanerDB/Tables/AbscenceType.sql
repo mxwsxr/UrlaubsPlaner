@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[AbscenceType]
+(
+	[AbscenceTypeID] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [Label] NVARCHAR(255) NOT NULL
+)
