@@ -43,32 +43,32 @@ namespace UrlaubsPlaner
         private void Button_save_Click(object sender, EventArgs e)
         {
             // SELECT a.AbsenceTypeId FROM a AS DbContext.AbsenceTypes WHERE a.Label == combobox_reason.SelectedText;
-            var absenceQuery = from a in DbContext.AbsenceType
-                               where a.Label == (string)combobox_absencetype.SelectedItem
-                               select a;
+            //var absenceQuery = from a in DbContext.AbsenceType
+            //                   where a.Label == (string)combobox_absencetype.SelectedItem
+            //                   select a;
 
-            var employeeQuery = from employee in DbContext.Employees
-                                where employee.EmployeeNumber == int.Parse(textbox_employeeNumber.Text)
-                                select employee;
+            //var employeeQuery = from employee in DbContext.Employees
+            //                    where employee.EmployeeNumber == int.Parse(textbox_employeeNumber.Text)
+            //                    select employee;
 
-            //AbsenceID = new Guid(),
-            //    AbsenceType = absenceQuery.First(),
-            //    Employee = employeeQuery.First(),
-            //    Reason = richtextbox_reason.Text,
-            //    FromDate = monthCalendar.SelectionRange.Start,
-            //    ToDate = monthCalendar.SelectionRange.End
+            ////AbsenceID = new Guid(),
+            ////    AbsenceType = absenceQuery.First(),
+            ////    Employee = employeeQuery.First(),
+            ////    Reason = richtextbox_reason.Text,
+            ////    FromDate = monthCalendar.SelectionRange.Start,
+            ////    ToDate = monthCalendar.SelectionRange.End
 
-            var absenceId = new Guid();
-            var absenceType = absenceQuery.First();
-            var employee1 = employeeQuery.First();
-            var reason = richtextbox_reason.Text;
-            var fromDate = monthCalendar.SelectionRange.Start;
-            var toDate = monthCalendar.SelectionRange.End;
+            //var absenceId = new Guid();
+            //var absenceType = absenceQuery.First();
+            //var employee1 = employeeQuery.First();
+            //var reason = richtextbox_reason.Text;
+            //var fromDate = monthCalendar.SelectionRange.Start;
+            //var toDate = monthCalendar.SelectionRange.End;
 
-            DbContext.Absence.Add(new Absence()
-            {
+            //DbContext.Absence.Add(new Absence()
+            //{
 
-            });
+            //});
         }
 
         private void Label1_Click_2(object sender, EventArgs e)
@@ -76,6 +76,11 @@ namespace UrlaubsPlaner
         }
 
         private void Combobox_absencetype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Listview_event_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

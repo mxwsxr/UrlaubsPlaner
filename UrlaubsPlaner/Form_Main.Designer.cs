@@ -70,7 +70,7 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(6, 454);
+            this.listView1.Location = new System.Drawing.Point(13, 454);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(420, 420);
             this.listView1.TabIndex = 1;
@@ -88,11 +88,12 @@
             listViewItem1,
             listViewItem2,
             listViewItem3});
-            this.listview_event.Location = new System.Drawing.Point(6, 15);
+            this.listview_event.Location = new System.Drawing.Point(13, 28);
             this.listview_event.Name = "listview_event";
             this.listview_event.Size = new System.Drawing.Size(420, 420);
             this.listview_event.TabIndex = 0;
             this.listview_event.UseCompatibleStateImageBehavior = false;
+            this.listview_event.SelectedIndexChanged += new System.EventHandler(this.Listview_event_SelectedIndexChanged);
             // 
             // employee
             // 
@@ -126,7 +127,7 @@
             this.gp_input.Controls.Add(this.monthCalendar);
             this.gp_input.Location = new System.Drawing.Point(465, 27);
             this.gp_input.Name = "gp_input";
-            this.gp_input.Size = new System.Drawing.Size(407, 880);
+            this.gp_input.Size = new System.Drawing.Size(546, 880);
             this.gp_input.TabIndex = 1;
             this.gp_input.TabStop = false;
             this.gp_input.Text = "Eingabe";
@@ -138,7 +139,7 @@
             "Urlaub",
             "Krank",
             "Hochschule/BS/Weiterbildung"});
-            this.combobox_absencetype.Location = new System.Drawing.Point(282, 96);
+            this.combobox_absencetype.Location = new System.Drawing.Point(400, 96);
             this.combobox_absencetype.Name = "combobox_absencetype";
             this.combobox_absencetype.Size = new System.Drawing.Size(116, 21);
             this.combobox_absencetype.TabIndex = 13;
@@ -147,7 +148,7 @@
             // label_absencetype
             // 
             this.label_absencetype.AutoSize = true;
-            this.label_absencetype.Location = new System.Drawing.Point(203, 99);
+            this.label_absencetype.Location = new System.Drawing.Point(312, 99);
             this.label_absencetype.Name = "label_absencetype";
             this.label_absencetype.Size = new System.Drawing.Size(28, 13);
             this.label_absencetype.TabIndex = 12;
@@ -155,7 +156,7 @@
             // 
             // richtextbox_reason
             // 
-            this.richtextbox_reason.Location = new System.Drawing.Point(206, 189);
+            this.richtextbox_reason.Location = new System.Drawing.Point(324, 189);
             this.richtextbox_reason.Name = "richtextbox_reason";
             this.richtextbox_reason.Size = new System.Drawing.Size(192, 118);
             this.richtextbox_reason.TabIndex = 11;
@@ -164,7 +165,7 @@
             // label_reason
             // 
             this.label_reason.AutoSize = true;
-            this.label_reason.Location = new System.Drawing.Point(203, 173);
+            this.label_reason.Location = new System.Drawing.Point(321, 173);
             this.label_reason.Name = "label_reason";
             this.label_reason.Size = new System.Drawing.Size(39, 13);
             this.label_reason.TabIndex = 9;
@@ -174,7 +175,7 @@
             // label_employeeNumber
             // 
             this.label_employeeNumber.AutoSize = true;
-            this.label_employeeNumber.Location = new System.Drawing.Point(203, 70);
+            this.label_employeeNumber.Location = new System.Drawing.Point(291, 70);
             this.label_employeeNumber.Name = "label_employeeNumber";
             this.label_employeeNumber.Size = new System.Drawing.Size(73, 13);
             this.label_employeeNumber.TabIndex = 8;
@@ -183,7 +184,7 @@
             // label_lastname
             // 
             this.label_lastname.AutoSize = true;
-            this.label_lastname.Location = new System.Drawing.Point(203, 44);
+            this.label_lastname.Location = new System.Drawing.Point(302, 44);
             this.label_lastname.Name = "label_lastname";
             this.label_lastname.Size = new System.Drawing.Size(62, 13);
             this.label_lastname.TabIndex = 7;
@@ -192,7 +193,7 @@
             // label_firstname
             // 
             this.label_firstname.AutoSize = true;
-            this.label_firstname.Location = new System.Drawing.Point(203, 18);
+            this.label_firstname.Location = new System.Drawing.Point(312, 18);
             this.label_firstname.Name = "label_firstname";
             this.label_firstname.Size = new System.Drawing.Size(52, 13);
             this.label_firstname.TabIndex = 6;
@@ -201,21 +202,21 @@
             // 
             // textbox_employeeNumber
             // 
-            this.textbox_employeeNumber.Location = new System.Drawing.Point(282, 67);
+            this.textbox_employeeNumber.Location = new System.Drawing.Point(400, 67);
             this.textbox_employeeNumber.Name = "textbox_employeeNumber";
             this.textbox_employeeNumber.Size = new System.Drawing.Size(116, 20);
             this.textbox_employeeNumber.TabIndex = 5;
             // 
             // textbox_lastname
             // 
-            this.textbox_lastname.Location = new System.Drawing.Point(282, 41);
+            this.textbox_lastname.Location = new System.Drawing.Point(400, 41);
             this.textbox_lastname.Name = "textbox_lastname";
             this.textbox_lastname.Size = new System.Drawing.Size(116, 20);
             this.textbox_lastname.TabIndex = 4;
             // 
             // textbox_firstname
             // 
-            this.textbox_firstname.Location = new System.Drawing.Point(282, 15);
+            this.textbox_firstname.Location = new System.Drawing.Point(400, 15);
             this.textbox_firstname.Name = "textbox_firstname";
             this.textbox_firstname.Size = new System.Drawing.Size(116, 20);
             this.textbox_firstname.TabIndex = 3;
@@ -249,7 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 937);
+            this.ClientSize = new System.Drawing.Size(1023, 937);
             this.Controls.Add(this.gp_input);
             this.Controls.Add(this.gp_calendar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
