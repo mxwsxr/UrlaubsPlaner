@@ -52,6 +52,8 @@
             this.button_save = new System.Windows.Forms.Button();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.warningLabel = new System.Windows.Forms.Label();
+            this.absenceTypebtn = new System.Windows.Forms.Button();
+            this.employeebtn = new System.Windows.Forms.Button();
             this.gp_calendar.SuspendLayout();
             this.gp_input.SuspendLayout();
             this.SuspendLayout();
@@ -113,6 +115,8 @@
             // 
             // gp_input
             // 
+            this.gp_input.Controls.Add(this.employeebtn);
+            this.gp_input.Controls.Add(this.absenceTypebtn);
             this.gp_input.Controls.Add(this.warningLabel);
             this.gp_input.Controls.Add(this.combobox_absencetype);
             this.gp_input.Controls.Add(this.label_absencetype);
@@ -257,6 +261,26 @@
             this.warningLabel.Size = new System.Drawing.Size(0, 13);
             this.warningLabel.TabIndex = 14;
             // 
+            // absenceTypebtn
+            // 
+            this.absenceTypebtn.Location = new System.Drawing.Point(12, 810);
+            this.absenceTypebtn.Name = "absenceTypebtn";
+            this.absenceTypebtn.Size = new System.Drawing.Size(92, 35);
+            this.absenceTypebtn.TabIndex = 15;
+            this.absenceTypebtn.Text = "Abwesenheits Arten";
+            this.absenceTypebtn.UseVisualStyleBackColor = true;
+            this.absenceTypebtn.Click += new System.EventHandler(this.AbsenceTypebtn_Click);
+            // 
+            // employeebtn
+            // 
+            this.employeebtn.Location = new System.Drawing.Point(12, 781);
+            this.employeebtn.Name = "employeebtn";
+            this.employeebtn.Size = new System.Drawing.Size(92, 23);
+            this.employeebtn.TabIndex = 16;
+            this.employeebtn.Text = "Mitarbeiter";
+            this.employeebtn.UseVisualStyleBackColor = true;
+            this.employeebtn.Click += new System.EventHandler(this.Employeebtn_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +324,8 @@
         private System.Windows.Forms.ColumnHeader Von;
         private System.Windows.Forms.ColumnHeader Bis;
         private System.Windows.Forms.Label warningLabel;
+        private System.Windows.Forms.Button employeebtn;
+        private System.Windows.Forms.Button absenceTypebtn;
     }
 }
 
