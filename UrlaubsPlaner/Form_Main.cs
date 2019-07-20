@@ -96,5 +96,15 @@ namespace UrlaubsPlaner
         {
 
         }
+
+        private void Employeebtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AbsenceTypebtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
