@@ -15,3 +15,22 @@ BEGIN
 	INSERT INTO [dbo].Country (CountryID,Name,Code)
 	VALUES (NEWID(),'Deutschland','DE')
 END
+
+
+If EXISTS (Select * FROM [dbo].AbscenceType WHERE Label='Urlaub')
+BEGIN
+	INSERT INTO [dbo].AbscenceType(AbsenceTypeID,Label)
+	VALUES (NEWID(),'Urlaub')
+END
+
+If EXISTS (Select * FROM [dbo].AbscenceType WHERE Label='Krankheit')
+BEGIN
+	INSERT INTO [dbo].AbscenceType(AbsenceTypeID,Label)
+	VALUES (NEWID(),'Krankheit')
+END
+
+If EXISTS (Select * FROM [dbo].AbscenceType WHERE Label='Sonderurlaub')
+BEGIN
+	INSERT INTO [dbo].AbscenceType(AbsenceTypeID,Label)
+	VALUES (NEWID(),'Sonderurlaub')
+END
