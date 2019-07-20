@@ -21,6 +21,18 @@ namespace UrlaubsPlaner.DBInteraction
             }
         }
 
+        public static List<Absence> GetAbsences()
+        {
+            var task = Task.Run(async () =>await GetAbsenceAsync());
+            task.Wait();
+            return task.Result;
+        }
+
+        public static async Task<List<Absence>> GetAbsenceAsync()
+        {
+            return await QueryData(GetSqlCommand(Querys.GetAbsences), EntityTransformations.TransformAbsence);
+        }
+
         private static SqlCommand GetSqlCommand(Querys query)
         {
             switch (query)
@@ -48,7 +60,7 @@ namespace UrlaubsPlaner.DBInteraction
             }
         }
 
-        private static async Task<IEnumerable<T>> QueryData<T>(SqlCommand sqlCommand, Func<SqlDataReader,T> transformData)
+        private static async Task<List<T>> QueryData<T>(SqlCommand sqlCommand, Func<SqlDataReader,Task<T>> transformData)
             where T : IEntity
         {
             var resultList = new List<T>();
@@ -63,7 +75,7 @@ namespace UrlaubsPlaner.DBInteraction
             {
                 while (await dataReader.ReadAsync())
                 {
-                    resultList.Add(transformData(dataReader));
+                    resultList.Add(await transformData(dataReader));
                 }
             }
 

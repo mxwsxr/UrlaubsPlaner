@@ -78,10 +78,12 @@
             this.listview_event.FullRowSelect = true;
             this.listview_event.GridLines = true;
             this.listview_event.Location = new System.Drawing.Point(6, 15);
+            this.listview_event.MultiSelect = false;
             this.listview_event.Name = "listview_event";
             this.listview_event.Size = new System.Drawing.Size(420, 859);
             this.listview_event.TabIndex = 0;
             this.listview_event.UseCompatibleStateImageBehavior = false;
+            this.listview_event.View = System.Windows.Forms.View.Details;
             this.listview_event.SelectedIndexChanged += new System.EventHandler(this.Listview_event_SelectedIndexChanged);
             // 
             // gp_input
@@ -219,6 +221,30 @@
             this.monthCalendar.Location = new System.Drawing.Point(12, 15);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 0;
+            // 
+            // MitarbeiterNr
+            // 
+            this.MitarbeiterNr.Text = "MitarbeiterNr";
+            // 
+            // Vorname
+            // 
+            this.Vorname.Text = "Vorname";
+            // 
+            // Nachname
+            // 
+            this.Nachname.Text = "Nachname";
+            // 
+            // Typ
+            // 
+            this.Typ.Text = "Typ";
+            // 
+            // Von
+            // 
+            this.Von.Text = "Von";
+            // 
+            // Bis
+            // 
+            this.Bis.Text = "Bis";
             // 
             // Form_Main
             // 
