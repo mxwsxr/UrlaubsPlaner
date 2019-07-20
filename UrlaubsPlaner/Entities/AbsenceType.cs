@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UrlaubsPlaner.Entities
 {
-    public class AbsenceType
+    public class AbsenceType : IEntity
     {
         public Guid AbsenceTypeId { get; set; }
         public string Label { get; set; }
