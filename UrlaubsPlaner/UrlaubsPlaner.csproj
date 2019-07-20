@@ -57,6 +57,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBInteraction\AbsenceQuerys.cs" />
+    <Compile Include="DBInteraction\AbsenceTypeQuerys.cs" />
+    <Compile Include="DBInteraction\CountryQuerys.cs" />
+    <Compile Include="DBInteraction\EmployeeQuerys.cs" />
     <Compile Include="DBInteraction\Querys.cs" />
     <Compile Include="Entities\Absence.cs" />
     <Compile Include="Entities\AbsenceType.cs" />

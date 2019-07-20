@@ -19,7 +19,7 @@ namespace UrlaubsPlaner.Entities
             SqlConnection = new SqlConnection(ConnectionString);
         }
 
-        public T QueryData<T>(Querys query)
+        private T QueryData<T>(Querys query)
             where T : IEntity
         {
 
