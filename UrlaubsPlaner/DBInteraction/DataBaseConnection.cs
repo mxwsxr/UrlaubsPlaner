@@ -14,6 +14,13 @@ namespace UrlaubsPlaner.DBInteraction
 
         private static SqlConnection SqlConnection = new SqlConnection(ConnectionString);
 
+        private static bool IsConnectionOpen { get
+            {
+                return SqlConnection.State == System.Data.ConnectionState.Open
+                    || SqlConnection.State == System.Data.ConnectionState.Connecting;
+            }
+        }
+
         private static SqlCommand GetSqlCommand(Querys query)
         {
             switch (query)
@@ -41,10 +48,26 @@ namespace UrlaubsPlaner.DBInteraction
             }
         }
 
-        private T QueryData<T>(Querys query)
+        private static async Task<IEnumerable<T>> QueryData<T>(SqlCommand sqlCommand, Func<SqlDataReader,T> transformData)
             where T : IEntity
         {
+            var resultList = new List<T>();
+            sqlCommand.Connection = SqlConnection;
+            if (!IsConnectionOpen )
+            {
+                SqlConnection.Open();
+            }
+            var dataReader = await sqlCommand.ExecuteReaderAsync();
 
+            while (dataReader.HasRows)
+            {
+                while (await dataReader.ReadAsync())
+                {
+                    resultList.Add(transformData(dataReader));
+                }
+            }
+
+            return resultList;
         }
     }
 }
