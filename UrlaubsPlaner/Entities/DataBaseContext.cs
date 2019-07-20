@@ -1,26 +1,26 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace UrlaubsPlaner.Entities
 {
-    public class DataBaseContext : DbContext
+    public class DataBaseContext : IDisposable
     {
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Absence> Absence { get; set; }
-        public DbSet<AbsenceType> AbsenceType { get; set; }
-        public DbSet<Country> Country { get; set; }
+        private const string ConnectionString = @"Server=(localdb)\mssqllocaldb;Database=UrlaubsPlanerDB;Trusted_Connection=True;";
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=UrlaubsPlaner;Trusted_Connection=True;");
-        }
+        private SqlConnection SqlConnection { get; set; }
 
         public DataBaseContext()
         {
+            SqlConnection = new SqlConnection(ConnectionString);
+        }
+
+        public void Dispose()
+        {
+            SqlConnection.Dispose();
         }
     }
 }
