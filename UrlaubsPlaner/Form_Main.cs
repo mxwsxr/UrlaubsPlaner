@@ -22,6 +22,7 @@ namespace UrlaubsPlaner
 
         private void Form_MainLoad(object sender, EventArgs e)
         {
+
         }
 
         private void GroupBox1_Enter(object sender, EventArgs e)

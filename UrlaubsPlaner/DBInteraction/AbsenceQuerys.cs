@@ -18,5 +18,15 @@ namespace UrlaubsPlaner.DBInteraction
 
         public static readonly string GETABSENCESWHEREEMPLOYEE = 
             GETABSENCES + @" WHERE [EmployeeID] = @EmployeeID";
+
+        public static readonly string GETABSENCEVIEW = @"SELECT [AbscenceID]
+      ,[FromDate]
+      ,[ToDate]
+      ,[Reason]
+      ,[EmployeeNumber]
+      ,[Firstname]
+      ,[Lastname]
+      ,[Label]
+  FROM [dbo].[AbsencesWithEmployeeAndAbsenceType]";
     }
 }
