@@ -31,6 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.gp_calendar = new System.Windows.Forms.GroupBox();
             this.listview_event = new System.Windows.Forms.ListView();
+            this.MitarbeiterNr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Vorname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Nachname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Typ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Von = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Bis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gp_input = new System.Windows.Forms.GroupBox();
             this.combobox_absencetype = new System.Windows.Forms.ComboBox();
             this.label_absencetype = new System.Windows.Forms.Label();
@@ -45,12 +51,7 @@
             this.button_cancel = new System.Windows.Forms.Button();
             this.button_save = new System.Windows.Forms.Button();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.MitarbeiterNr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Vorname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Nachname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Typ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Von = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Bis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.warningLabel = new System.Windows.Forms.Label();
             this.gp_calendar.SuspendLayout();
             this.gp_input.SuspendLayout();
             this.SuspendLayout();
@@ -86,8 +87,33 @@
             this.listview_event.View = System.Windows.Forms.View.Details;
             this.listview_event.SelectedIndexChanged += new System.EventHandler(this.Listview_event_SelectedIndexChanged);
             // 
+            // MitarbeiterNr
+            // 
+            this.MitarbeiterNr.Text = "MitarbeiterNr";
+            // 
+            // Vorname
+            // 
+            this.Vorname.Text = "Vorname";
+            // 
+            // Nachname
+            // 
+            this.Nachname.Text = "Nachname";
+            // 
+            // Typ
+            // 
+            this.Typ.Text = "Typ";
+            // 
+            // Von
+            // 
+            this.Von.Text = "Von";
+            // 
+            // Bis
+            // 
+            this.Bis.Text = "Bis";
+            // 
             // gp_input
             // 
+            this.gp_input.Controls.Add(this.warningLabel);
             this.gp_input.Controls.Add(this.combobox_absencetype);
             this.gp_input.Controls.Add(this.label_absencetype);
             this.gp_input.Controls.Add(this.richtextbox_reason);
@@ -222,29 +248,14 @@
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 0;
             // 
-            // MitarbeiterNr
+            // warningLabel
             // 
-            this.MitarbeiterNr.Text = "MitarbeiterNr";
-            // 
-            // Vorname
-            // 
-            this.Vorname.Text = "Vorname";
-            // 
-            // Nachname
-            // 
-            this.Nachname.Text = "Nachname";
-            // 
-            // Typ
-            // 
-            this.Typ.Text = "Typ";
-            // 
-            // Von
-            // 
-            this.Von.Text = "Von";
-            // 
-            // Bis
-            // 
-            this.Bis.Text = "Bis";
+            this.warningLabel.AutoSize = true;
+            this.warningLabel.ForeColor = System.Drawing.Color.Red;
+            this.warningLabel.Location = new System.Drawing.Point(294, 163);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(0, 13);
+            this.warningLabel.TabIndex = 14;
             // 
             // Form_Main
             // 
@@ -288,6 +299,7 @@
         private System.Windows.Forms.ColumnHeader Typ;
         private System.Windows.Forms.ColumnHeader Von;
         private System.Windows.Forms.ColumnHeader Bis;
+        private System.Windows.Forms.Label warningLabel;
     }
 }
 
