@@ -41,6 +41,15 @@ namespace UrlaubsPlaner.Entities
             };
         }
 
+        public static AbsenceType TransformAbsenceType(SqlDataReader dataReader)
+        {
+            return new AbsenceType()
+            {
+                AbsenceTypeId = dataReader.GetGuid(0),
+                Label = dataReader.GetString(1)
+            };
+        }
+
         private static async Task<T> GetValue<T>(int ordinal, SqlDataReader dataReader, Func<SqlDataReader, int, T> getValue)
             => await dataReader.IsDBNullAsync(ordinal) ? default : getValue(dataReader, ordinal);
     }

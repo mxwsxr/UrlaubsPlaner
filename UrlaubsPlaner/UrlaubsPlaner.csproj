@@ -57,11 +57,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbsenceType_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbsenceType_Form.Designer.cs">
+      <DependentUpon>AbsenceType_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBInteraction\AbsenceQuerys.cs" />
     <Compile Include="DBInteraction\AbsenceTypeQuerys.cs" />
     <Compile Include="DBInteraction\CountryQuerys.cs" />
     <Compile Include="DBInteraction\EmployeeQuerys.cs" />
     <Compile Include="DBInteraction\Querys.cs" />
+    <Compile Include="Employee_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee_Form.Designer.cs">
+      <DependentUpon>Employee_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Absence.cs" />
     <Compile Include="Entities\AbsenceType.cs" />
     <Compile Include="Entities\Country.cs" />
@@ -77,6 +89,9 @@
     <Compile Include="DBInteraction\DataBaseConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AbsenceType_Form.resx">
+      <DependentUpon>AbsenceType_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
