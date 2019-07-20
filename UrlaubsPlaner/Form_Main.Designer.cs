@@ -156,16 +156,16 @@
             // 
             // richtextbox_reason
             // 
-            this.richtextbox_reason.Location = new System.Drawing.Point(324, 189);
+            this.richtextbox_reason.Location = new System.Drawing.Point(12, 255);
             this.richtextbox_reason.Name = "richtextbox_reason";
-            this.richtextbox_reason.Size = new System.Drawing.Size(192, 118);
+            this.richtextbox_reason.Size = new System.Drawing.Size(504, 405);
             this.richtextbox_reason.TabIndex = 11;
             this.richtextbox_reason.Text = "";
             // 
             // label_reason
             // 
             this.label_reason.AutoSize = true;
-            this.label_reason.Location = new System.Drawing.Point(321, 173);
+            this.label_reason.Location = new System.Drawing.Point(9, 239);
             this.label_reason.Name = "label_reason";
             this.label_reason.Size = new System.Drawing.Size(39, 13);
             this.label_reason.TabIndex = 9;
@@ -223,7 +223,7 @@
             // 
             // button_cancel
             // 
-            this.button_cancel.Location = new System.Drawing.Point(12, 218);
+            this.button_cancel.Location = new System.Drawing.Point(424, 851);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(92, 23);
             this.button_cancel.TabIndex = 2;
@@ -232,7 +232,7 @@
             // 
             // button_save
             // 
-            this.button_save.Location = new System.Drawing.Point(12, 189);
+            this.button_save.Location = new System.Drawing.Point(12, 851);
             this.button_save.Name = "button_save";
             this.button_save.Size = new System.Drawing.Size(92, 23);
             this.button_save.TabIndex = 1;
