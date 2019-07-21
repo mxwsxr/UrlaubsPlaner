@@ -15,5 +15,10 @@ namespace UrlaubsPlaner.Entities
         public Country()
         {
         }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Code}";
+        }
     }
 }

@@ -69,6 +69,16 @@ namespace UrlaubsPlaner.Entities
             };
         }
 
+        public static Country TransformCountry(SqlDataReader dataReader)
+        {
+            return new Country()
+            {
+                CountryId = dataReader.GetGuid(0),
+                Name = dataReader.GetString(1),
+                Code = dataReader.GetString(2)
+            };
+        }
+
         private static async Task<T> GetValue<T>(int ordinal, SqlDataReader dataReader, Func<SqlDataReader, int, T> getValue)
             => await dataReader.IsDBNullAsync(ordinal) ? default : getValue(dataReader, ordinal);
     }
