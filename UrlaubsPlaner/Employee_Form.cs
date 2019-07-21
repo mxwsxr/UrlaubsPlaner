@@ -15,6 +15,17 @@ namespace UrlaubsPlaner
         public Employee_Form()
         {
             InitializeComponent();
+            this.Hide();
+        }
+
+        private void Employee_Form_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cancelbtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

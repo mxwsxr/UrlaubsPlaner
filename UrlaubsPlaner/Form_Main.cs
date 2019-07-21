@@ -15,17 +15,26 @@ namespace UrlaubsPlaner
     public partial class Form_Main : Form
     {
         private List<Absence> Absences;
+        private Employee_Form Employee_Form;
+        private AbsenceType_Form AbsenceType_Form;
+
 
         public Form_Main()
         {
             InitializeComponent();
+            Employee_Form = new Employee_Form();
+            Employee_Form.VisibleChanged += ShowFormAgain;
+            Employee_Form.FormClosed += StopProgramm;
+            AbsenceType_Form = new AbsenceType_Form();
+            AbsenceType_Form.VisibleChanged += ShowFormAgain;
+            AbsenceType_Form.FormClosed += StopProgramm;
         }
 
         private void Form_MainLoad(object sender, EventArgs e)
         {
             Absences = DataBaseConnection.GetAbsences();
-            listview_event.Items.AddRange(Absences.Select(x 
-                => new ListViewItem(new string[] 
+            listview_event.Items.AddRange(Absences.Select(x
+                => new ListViewItem(new string[]
                 {
                     x.Employee.EmployeeNumber.ToString(),
                     x.Employee.Firstname,
@@ -99,12 +108,34 @@ namespace UrlaubsPlaner
 
         private void Employeebtn_Click(object sender, EventArgs e)
         {
-
+            Employee_Form.Show();
         }
 
         private void AbsenceTypebtn_Click(object sender, EventArgs e)
         {
+            AbsenceType_Form.Show();
+        }
 
+        private void ShowFormAgain(object sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+                this.Hide();
+            }
+            else
+            {
+                this.Show();
+            }
+        }
+
+        private void StopProgramm(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

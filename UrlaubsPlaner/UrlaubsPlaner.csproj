@@ -92,6 +92,9 @@
     <EmbeddedResource Include="AbsenceType_Form.resx">
       <DependentUpon>AbsenceType_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Employee_Form.resx">
+      <DependentUpon>Employee_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>

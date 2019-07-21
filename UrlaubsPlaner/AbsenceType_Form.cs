@@ -19,6 +19,7 @@ namespace UrlaubsPlaner
         public AbsenceType_Form()
         {
             InitializeComponent();
+            this.Hide();
         }
 
         private void CreateButton_Click(object sender, EventArgs e)
@@ -35,6 +36,11 @@ namespace UrlaubsPlaner
                     x.AbsenceTypeId.ToString(),
                     x.Label
                 })).ToArray());
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }
