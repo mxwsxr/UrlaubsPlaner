@@ -9,7 +9,7 @@ namespace UrlaubsPlaner.Entities
 {
     public static class EntityTransformations
     {
-        public static async Task<Absence> TransformAbsence(SqlDataReader dataReader)
+        public static async Task<Absence> TransformAbsenceView(SqlDataReader dataReader)
         {
             return new Absence()
             {
@@ -38,6 +38,25 @@ namespace UrlaubsPlaner.Entities
                 ToDate = dataReader.GetDateTime(2),
                 Reason = dataReader.GetString(3),
                 AbsenceType = new AbsenceType() { AbsenceTypeId = dataReader.GetGuid(18), Label = dataReader.GetString(19) }
+            };
+        }
+
+        public static Absence TransformAbsence(SqlDataReader dataReader)
+        {
+            return new Absence()
+            {
+                AbsenceID = dataReader.GetGuid(0),
+                AbsenceType = new AbsenceType()
+                {
+                    AbsenceTypeId = dataReader.GetGuid(1)
+                },
+                Employee = new Employee()
+                {
+                    EmployeeId = dataReader.GetGuid(2)
+                },
+                FromDate = dataReader.GetDateTime(3),
+                ToDate = dataReader.GetDateTime(4),
+                Reason = dataReader.GetString(5)
             };
         }
 
