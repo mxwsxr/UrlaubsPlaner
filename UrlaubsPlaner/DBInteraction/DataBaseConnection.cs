@@ -30,7 +30,17 @@ namespace UrlaubsPlaner.DBInteraction
 
         public static async Task<List<Absence>> GetAbsenceAsync()
         {
-            return await QueryDataAsync(GetSqlCommand(Querys.GetAbsences), EntityTransformations.TransformAbsence);
+            return await QueryData(GetSqlCommand(Querys.GetAbsences), EntityTransformations.TransformAbsence);
+        }
+
+        public static List<Absence> GetFullAbsences()
+        {
+            return GetValuesSynchronously(GetFullAbsencesAsync);
+        }
+
+        public static async Task<List<Absence>> GetFullAbsencesAsync()
+        {
+            return await QueryDataAsync(GetSqlCommand(Querys.GetAbsenceView), EntityTransformations.TransformAbsenceView);
         }
 
         public static List<AbsenceType> GetAbsenceTypes()
