@@ -32,7 +32,7 @@ namespace UrlaubsPlaner
 
         private void Form_MainLoad(object sender, EventArgs e)
         {
-            Absences = DataBaseConnection.GetAbsences();
+            Absences = DataBaseConnection.GetFullAbsences();
             listview_event.Items.AddRange(Absences.Select(x
                 => new ListViewItem(new string[]
                 {
