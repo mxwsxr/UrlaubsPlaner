@@ -14,7 +14,9 @@ namespace UrlaubsPlaner.DBInteraction
 
         private static SqlConnection SqlConnection = new SqlConnection(ConnectionString);
 
-        private static bool IsConnectionOpen { get
+        private static bool IsConnectionOpen
+        {
+            get
             {
                 return SqlConnection.State == System.Data.ConnectionState.Open
                     || SqlConnection.State == System.Data.ConnectionState.Connecting;
@@ -42,7 +44,7 @@ namespace UrlaubsPlaner.DBInteraction
         }
 
         private static List<T> GetValuesSynchronously<T>(Func<Task<List<T>>> func)
-            where T:IEntity
+            where T : IEntity
         {
             var task = Task.Run(async () => await func());
             task.Wait();
@@ -61,7 +63,7 @@ namespace UrlaubsPlaner.DBInteraction
 
                 case Querys.GetEmployees:
                     return new SqlCommand(EmployeeQuerys.GETEMPLOYEES);
-                    
+
                 case Querys.GetCountrys:
                     return new SqlCommand(CountryQuerys.GETCOUNTRYS);
 
@@ -85,35 +87,38 @@ namespace UrlaubsPlaner.DBInteraction
             {
                 SqlConnection.Open();
             }
-            var dataReader = await sqlCommand.ExecuteReaderAsync();
-
-            while (dataReader.HasRows)
+            using (var dataReader = await sqlCommand.ExecuteReaderAsync())
             {
-                while (await dataReader.ReadAsync())
+
+                if (dataReader.HasRows)
                 {
-                    resultList.Add(transformData(dataReader));
+                    while (await dataReader.ReadAsync())
+                    {
+                        resultList.Add(transformData(dataReader));
+                    }
                 }
             }
-
             return resultList;
         }
 
-        private static async Task<List<T>> QueryDataAsync<T>(SqlCommand sqlCommand, Func<SqlDataReader,Task<T>> transformData)
+        private static async Task<List<T>> QueryDataAsync<T>(SqlCommand sqlCommand, Func<SqlDataReader, Task<T>> transformData)
             where T : IEntity
         {
             var resultList = new List<T>();
             sqlCommand.Connection = SqlConnection;
-            if (!IsConnectionOpen )
+            if (!IsConnectionOpen)
             {
                 SqlConnection.Open();
             }
-            var dataReader = await sqlCommand.ExecuteReaderAsync();
-
-            while (dataReader.HasRows)
+            using (var dataReader = await sqlCommand.ExecuteReaderAsync())
             {
-                while (await dataReader.ReadAsync())
+
+                if (dataReader.HasRows)
                 {
-                    resultList.Add(await transformData(dataReader));
+                    while (await dataReader.ReadAsync())
+                    {
+                        resultList.Add(await transformData(dataReader));
+                    }
                 }
             }
 

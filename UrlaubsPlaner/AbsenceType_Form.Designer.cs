@@ -36,6 +36,7 @@
             this.createButton = new System.Windows.Forms.Button();
             this.absenceTypeLabel = new System.Windows.Forms.Label();
             this.absenceType_Label = new System.Windows.Forms.TextBox();
+            this.cancelBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,11 +101,22 @@
             this.absenceType_Label.Size = new System.Drawing.Size(274, 20);
             this.absenceType_Label.TabIndex = 0;
             // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Location = new System.Drawing.Point(665, 414);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
+            this.cancelBtn.TabIndex = 2;
+            this.cancelBtn.Text = "Abbrechen";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
             // AbsenceType_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.absenceTypeListView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -126,5 +138,6 @@
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.Label absenceTypeLabel;
         private System.Windows.Forms.TextBox absenceType_Label;
+        private System.Windows.Forms.Button cancelBtn;
     }
 }
