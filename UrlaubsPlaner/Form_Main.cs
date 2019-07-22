@@ -15,6 +15,8 @@ namespace UrlaubsPlaner
     public partial class Form_Main : Form
     {
         private List<Absence> Absences;
+        private List<AbsenceType> AbsenceTypes;
+        private List<Employee> Employees;
         private Employee_Form Employee_Form;
         private AbsenceType_Form AbsenceType_Form;
 
@@ -22,9 +24,11 @@ namespace UrlaubsPlaner
         public Form_Main()
         {
             InitializeComponent();
+
             Employee_Form = new Employee_Form();
             Employee_Form.VisibleChanged += ShowFormAgain;
             Employee_Form.FormClosed += StopProgramm;
+
             AbsenceType_Form = new AbsenceType_Form();
             AbsenceType_Form.VisibleChanged += ShowFormAgain;
             AbsenceType_Form.FormClosed += StopProgramm;
@@ -33,6 +37,9 @@ namespace UrlaubsPlaner
         private void Form_MainLoad(object sender, EventArgs e)
         {
             Absences = DataBaseConnection.GetFullAbsences();
+            AbsenceTypes = DataBaseConnection.GetAbsenceTypes();
+            Employees = DataBaseConnection.GetEmployees();
+
             listview_event.Items.AddRange(Absences.Select(x
                 => new ListViewItem(new string[]
                 {
@@ -43,6 +50,10 @@ namespace UrlaubsPlaner
                     x.FromDate.ToString(),
                     x.ToDate.ToString()
                 })).ToArray());
+
+            cbx_absencetype.Items.AddRange(AbsenceTypes.ToArray());
+
+            cbx_employee.Items.AddRange(Employees.ToArray());
         }
 
         private void GroupBox1_Enter(object sender, EventArgs e)
@@ -136,6 +147,22 @@ namespace UrlaubsPlaner
         private void Button_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Cbx_employee_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var employee = CbxAsEmployee(cbx_employee);
+            textbox_firstname.Text = employee.Firstname;
+            textbox_lastname.Text = employee.Lastname;
+
+            Employee CbxAsEmployee(ComboBox box)
+            {
+                if (box.SelectedItem is Employee)
+                {
+                    return box.SelectedItem as Employee;
+                }
+                throw new InvalidOperationException("This combobox should contain employee objects!");
+            }
         }
     }
 }

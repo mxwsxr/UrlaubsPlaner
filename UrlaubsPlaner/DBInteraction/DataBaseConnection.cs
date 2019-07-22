@@ -63,6 +63,16 @@ namespace UrlaubsPlaner.DBInteraction
             return await QueryData(GetSqlCommand(Querys.GetCountrys), EntityTransformations.TransformCountry);
         }
 
+        public static List<Employee> GetEmployees()
+        {
+            return GetValuesSynchronously(GetEmployeesAsync);
+        }
+
+        public static async Task<List<Employee>> GetEmployeesAsync()
+        {
+            return await QueryDataAsync(GetSqlCommand(Querys.GetEmployees), EntityTransformations.TransformEployee);
+        }
+
         private static List<T> GetValuesSynchronously<T>(Func<Task<List<T>>> func)
             where T : IEntity
         {

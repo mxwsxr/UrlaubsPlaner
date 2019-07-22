@@ -14,5 +14,10 @@ namespace UrlaubsPlaner.Entities
         public AbsenceType()
         {
         }
+
+        public override string ToString()
+        {
+            return $"{Label}";
+        }
     }
 }

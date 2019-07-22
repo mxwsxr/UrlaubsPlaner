@@ -38,22 +38,22 @@
             this.Von = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Bis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gp_input = new System.Windows.Forms.GroupBox();
-            this.combobox_absencetype = new System.Windows.Forms.ComboBox();
+            this.employeebtn = new System.Windows.Forms.Button();
+            this.absenceTypebtn = new System.Windows.Forms.Button();
+            this.warningLabel = new System.Windows.Forms.Label();
             this.label_absencetype = new System.Windows.Forms.Label();
             this.richtextbox_reason = new System.Windows.Forms.RichTextBox();
             this.label_reason = new System.Windows.Forms.Label();
             this.label_employeeNumber = new System.Windows.Forms.Label();
             this.label_lastname = new System.Windows.Forms.Label();
             this.label_firstname = new System.Windows.Forms.Label();
-            this.textbox_employeeNumber = new System.Windows.Forms.TextBox();
             this.textbox_lastname = new System.Windows.Forms.TextBox();
             this.textbox_firstname = new System.Windows.Forms.TextBox();
             this.button_cancel = new System.Windows.Forms.Button();
             this.button_save = new System.Windows.Forms.Button();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.warningLabel = new System.Windows.Forms.Label();
-            this.absenceTypebtn = new System.Windows.Forms.Button();
-            this.employeebtn = new System.Windows.Forms.Button();
+            this.cbx_absencetype = new System.Windows.Forms.ComboBox();
+            this.cbx_employee = new System.Windows.Forms.ComboBox();
             this.gp_calendar.SuspendLayout();
             this.gp_input.SuspendLayout();
             this.SuspendLayout();
@@ -115,17 +115,17 @@
             // 
             // gp_input
             // 
+            this.gp_input.Controls.Add(this.cbx_employee);
+            this.gp_input.Controls.Add(this.cbx_absencetype);
             this.gp_input.Controls.Add(this.employeebtn);
             this.gp_input.Controls.Add(this.absenceTypebtn);
             this.gp_input.Controls.Add(this.warningLabel);
-            this.gp_input.Controls.Add(this.combobox_absencetype);
             this.gp_input.Controls.Add(this.label_absencetype);
             this.gp_input.Controls.Add(this.richtextbox_reason);
             this.gp_input.Controls.Add(this.label_reason);
             this.gp_input.Controls.Add(this.label_employeeNumber);
             this.gp_input.Controls.Add(this.label_lastname);
             this.gp_input.Controls.Add(this.label_firstname);
-            this.gp_input.Controls.Add(this.textbox_employeeNumber);
             this.gp_input.Controls.Add(this.textbox_lastname);
             this.gp_input.Controls.Add(this.textbox_firstname);
             this.gp_input.Controls.Add(this.button_cancel);
@@ -138,18 +138,34 @@
             this.gp_input.TabStop = false;
             this.gp_input.Text = "Eingabe";
             // 
-            // combobox_absencetype
+            // employeebtn
             // 
-            this.combobox_absencetype.FormattingEnabled = true;
-            this.combobox_absencetype.Items.AddRange(new object[] {
-            "Urlaub",
-            "Krank",
-            "Hochschule/BS/Weiterbildung"});
-            this.combobox_absencetype.Location = new System.Drawing.Point(400, 96);
-            this.combobox_absencetype.Name = "combobox_absencetype";
-            this.combobox_absencetype.Size = new System.Drawing.Size(116, 21);
-            this.combobox_absencetype.TabIndex = 13;
-            this.combobox_absencetype.SelectedIndexChanged += new System.EventHandler(this.Combobox_absencetype_SelectedIndexChanged);
+            this.employeebtn.Location = new System.Drawing.Point(12, 781);
+            this.employeebtn.Name = "employeebtn";
+            this.employeebtn.Size = new System.Drawing.Size(92, 23);
+            this.employeebtn.TabIndex = 16;
+            this.employeebtn.Text = "Mitarbeiter";
+            this.employeebtn.UseVisualStyleBackColor = true;
+            this.employeebtn.Click += new System.EventHandler(this.Employeebtn_Click);
+            // 
+            // absenceTypebtn
+            // 
+            this.absenceTypebtn.Location = new System.Drawing.Point(12, 810);
+            this.absenceTypebtn.Name = "absenceTypebtn";
+            this.absenceTypebtn.Size = new System.Drawing.Size(92, 35);
+            this.absenceTypebtn.TabIndex = 15;
+            this.absenceTypebtn.Text = "Abwesenheits Arten";
+            this.absenceTypebtn.UseVisualStyleBackColor = true;
+            this.absenceTypebtn.Click += new System.EventHandler(this.AbsenceTypebtn_Click);
+            // 
+            // warningLabel
+            // 
+            this.warningLabel.AutoSize = true;
+            this.warningLabel.ForeColor = System.Drawing.Color.Red;
+            this.warningLabel.Location = new System.Drawing.Point(294, 163);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(0, 13);
+            this.warningLabel.TabIndex = 14;
             // 
             // label_absencetype
             // 
@@ -206,25 +222,20 @@
             this.label_firstname.Text = "Vorname:";
             this.label_firstname.Click += new System.EventHandler(this.Label1_Click);
             // 
-            // textbox_employeeNumber
-            // 
-            this.textbox_employeeNumber.Location = new System.Drawing.Point(400, 67);
-            this.textbox_employeeNumber.Name = "textbox_employeeNumber";
-            this.textbox_employeeNumber.Size = new System.Drawing.Size(116, 20);
-            this.textbox_employeeNumber.TabIndex = 5;
-            // 
             // textbox_lastname
             // 
+            this.textbox_lastname.Enabled = false;
             this.textbox_lastname.Location = new System.Drawing.Point(400, 41);
             this.textbox_lastname.Name = "textbox_lastname";
-            this.textbox_lastname.Size = new System.Drawing.Size(116, 20);
+            this.textbox_lastname.Size = new System.Drawing.Size(121, 20);
             this.textbox_lastname.TabIndex = 4;
             // 
             // textbox_firstname
             // 
+            this.textbox_firstname.Enabled = false;
             this.textbox_firstname.Location = new System.Drawing.Point(400, 15);
             this.textbox_firstname.Name = "textbox_firstname";
-            this.textbox_firstname.Size = new System.Drawing.Size(116, 20);
+            this.textbox_firstname.Size = new System.Drawing.Size(121, 20);
             this.textbox_firstname.TabIndex = 3;
             // 
             // button_cancel
@@ -253,34 +264,22 @@
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 0;
             // 
-            // warningLabel
+            // cbx_absencetype
             // 
-            this.warningLabel.AutoSize = true;
-            this.warningLabel.ForeColor = System.Drawing.Color.Red;
-            this.warningLabel.Location = new System.Drawing.Point(294, 163);
-            this.warningLabel.Name = "warningLabel";
-            this.warningLabel.Size = new System.Drawing.Size(0, 13);
-            this.warningLabel.TabIndex = 14;
+            this.cbx_absencetype.FormattingEnabled = true;
+            this.cbx_absencetype.Location = new System.Drawing.Point(400, 99);
+            this.cbx_absencetype.Name = "cbx_absencetype";
+            this.cbx_absencetype.Size = new System.Drawing.Size(121, 21);
+            this.cbx_absencetype.TabIndex = 17;
             // 
-            // absenceTypebtn
+            // cbx_employee
             // 
-            this.absenceTypebtn.Location = new System.Drawing.Point(12, 810);
-            this.absenceTypebtn.Name = "absenceTypebtn";
-            this.absenceTypebtn.Size = new System.Drawing.Size(92, 35);
-            this.absenceTypebtn.TabIndex = 15;
-            this.absenceTypebtn.Text = "Abwesenheits Arten";
-            this.absenceTypebtn.UseVisualStyleBackColor = true;
-            this.absenceTypebtn.Click += new System.EventHandler(this.AbsenceTypebtn_Click);
-            // 
-            // employeebtn
-            // 
-            this.employeebtn.Location = new System.Drawing.Point(12, 781);
-            this.employeebtn.Name = "employeebtn";
-            this.employeebtn.Size = new System.Drawing.Size(92, 23);
-            this.employeebtn.TabIndex = 16;
-            this.employeebtn.Text = "Mitarbeiter";
-            this.employeebtn.UseVisualStyleBackColor = true;
-            this.employeebtn.Click += new System.EventHandler(this.Employeebtn_Click);
+            this.cbx_employee.FormattingEnabled = true;
+            this.cbx_employee.Location = new System.Drawing.Point(400, 68);
+            this.cbx_employee.Name = "cbx_employee";
+            this.cbx_employee.Size = new System.Drawing.Size(121, 21);
+            this.cbx_employee.TabIndex = 18;
+            this.cbx_employee.SelectedValueChanged += new System.EventHandler(this.Cbx_employee_SelectedValueChanged);
             // 
             // Form_Main
             // 
@@ -307,7 +306,6 @@
         private System.Windows.Forms.Label label_employeeNumber;
         private System.Windows.Forms.Label label_lastname;
         private System.Windows.Forms.Label label_firstname;
-        private System.Windows.Forms.TextBox textbox_employeeNumber;
         private System.Windows.Forms.TextBox textbox_lastname;
         private System.Windows.Forms.TextBox textbox_firstname;
         private System.Windows.Forms.Button button_cancel;
@@ -316,7 +314,6 @@
         private System.Windows.Forms.ListView listview_event;
         private System.Windows.Forms.Label label_reason;
         private System.Windows.Forms.RichTextBox richtextbox_reason;
-        private System.Windows.Forms.ComboBox combobox_absencetype;
         private System.Windows.Forms.Label label_absencetype;
         private System.Windows.Forms.ColumnHeader MitarbeiterNr;
         private System.Windows.Forms.ColumnHeader Vorname;
@@ -327,6 +324,8 @@
         private System.Windows.Forms.Label warningLabel;
         private System.Windows.Forms.Button employeebtn;
         private System.Windows.Forms.Button absenceTypebtn;
+        private System.Windows.Forms.ComboBox cbx_absencetype;
+        private System.Windows.Forms.ComboBox cbx_employee;
     }
 }
 

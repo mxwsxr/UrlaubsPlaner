@@ -21,5 +21,10 @@ namespace UrlaubsPlaner.Entities
         public Employee()
         {
         }
+
+        public override string ToString()
+        {
+            return $"{EmployeeNumber} - {Lastname}";
+        }
     }
 }

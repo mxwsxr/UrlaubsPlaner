@@ -26,13 +26,13 @@ namespace UrlaubsPlaner.Entities
                     },
                     Firstname = dataReader.GetString(9),
                     Lastname = dataReader.GetString(10),
-                    Birthday = await GetValue(11,dataReader, (x,y) => x.GetDateTime(y)),
+                    Birthday = await GetNullableDateTimeValue(11, dataReader),
                     Street = dataReader.GetString(12),
                     Housenumber = dataReader.GetString(13),
                     Postalcode = dataReader.GetString(14),
                     City = dataReader.GetString(15),
                     Phonenumber = dataReader.GetString(16),
-                    Email = dataReader.GetString(17)                    
+                    Email = dataReader.GetString(17)
                 },
                 FromDate = dataReader.GetDateTime(1),
                 ToDate = dataReader.GetDateTime(2),
@@ -77,6 +77,35 @@ namespace UrlaubsPlaner.Entities
                 Name = dataReader.GetString(1),
                 Code = dataReader.GetString(2)
             };
+        }
+
+        public static async Task<Employee> TransformEployee(SqlDataReader dataReader)
+        {
+            return new Employee()
+            {
+                EmployeeId = dataReader.GetGuid(0),
+                EmployeeNumber = dataReader.GetInt32(1),
+                Country = new Country()
+                {
+                    CountryId = dataReader.GetGuid(2)
+                },
+                Firstname = dataReader.GetString(3),
+                Lastname = dataReader.GetString(4),
+                Birthday = await GetNullableDateTimeValue(5, dataReader),
+                Street = dataReader.GetString(6),
+                Housenumber = dataReader.GetString(7),
+                Postalcode = dataReader.GetString(8),
+                City = dataReader.GetString(9),
+                Phonenumber = dataReader.GetString(10),
+                Email = dataReader.GetString(11)
+            };
+        }
+
+        private static async Task<DateTime?> GetNullableDateTimeValue(int ordinal, SqlDataReader dataReader)
+        {
+            return await GetValue<DateTime?>(ordinal, dataReader, ToDateTime);
+
+            DateTime? ToDateTime(SqlDataReader dR, int o) => dR.GetDateTime(o);
         }
 
         private static async Task<T> GetValue<T>(int ordinal, SqlDataReader dataReader, Func<SqlDataReader, int, T> getValue)
