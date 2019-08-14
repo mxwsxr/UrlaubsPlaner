@@ -101,7 +101,7 @@ namespace UrlaubsPlaner.Entities
             };
         }
 
-        public static async Task<Employee> TransformEmployeeForm(SqlDataReader dataReader)
+        public static async Task<Employee> TransformEmployeeView(SqlDataReader dataReader)
         {
             return new Employee()
             {
