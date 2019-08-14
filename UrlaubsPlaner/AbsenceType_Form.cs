@@ -42,5 +42,15 @@ namespace UrlaubsPlaner
         {
             this.Hide();
         }
+
+        private void AbsenceTypeListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (absenceTypeListView.SelectedIndices.Count == 1)
+            {
+                var index = absenceTypeListView.SelectedIndices[0];
+                var listViewItem = absenceTypeListView.Items[index];
+                absenceType_Label.Text = listViewItem.SubItems[1].Text;
+            }
+        }
     }
 }

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee_Form));
             this.cancelbtn = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.employeeListView = new System.Windows.Forms.ListView();
             this.employeeID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.employeeNr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.countryCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -70,21 +70,24 @@
             this.cancelbtn.UseVisualStyleBackColor = true;
             this.cancelbtn.Click += new System.EventHandler(this.Cancelbtn_Click);
             // 
-            // listView1
+            // employeeListView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.employeeListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.employeeID,
             this.employeeNr,
             this.countryCode,
             this.firstName,
             this.lastName,
             this.email});
-            this.listView1.Location = new System.Drawing.Point(13, 13);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(390, 425);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.employeeListView.FullRowSelect = true;
+            this.employeeListView.Location = new System.Drawing.Point(13, 13);
+            this.employeeListView.Name = "employeeListView";
+            this.employeeListView.Size = new System.Drawing.Size(390, 425);
+            this.employeeListView.TabIndex = 1;
+            this.employeeListView.UseCompatibleStateImageBehavior = false;
+            this.employeeListView.View = System.Windows.Forms.View.Details;
+            this.employeeListView.SelectedIndexChanged += new System.EventHandler(this.EmployeeListView_SelectedIndexChanged);
+            this.employeeListView.Click += new System.EventHandler(this.EmployeeListView_Click);
             // 
             // employeeID
             // 
@@ -309,7 +312,7 @@
             this.Controls.Add(this.dtm_birthday);
             this.Controls.Add(this.txtbx_lastname);
             this.Controls.Add(this.txtbx_firstname);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.employeeListView);
             this.Controls.Add(this.cancelbtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Employee_Form";
@@ -323,7 +326,7 @@
         #endregion
 
         private System.Windows.Forms.Button cancelbtn;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView employeeListView;
         private System.Windows.Forms.ColumnHeader employeeID;
         private System.Windows.Forms.ColumnHeader employeeNr;
         private System.Windows.Forms.ColumnHeader countryCode;

@@ -45,6 +45,8 @@
             this.absenceTypeListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.absenceTypeID,
             this.label});
+            this.absenceTypeListView.FullRowSelect = true;
+            this.absenceTypeListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.absenceTypeListView.Location = new System.Drawing.Point(13, 13);
             this.absenceTypeListView.MultiSelect = false;
             this.absenceTypeListView.Name = "absenceTypeListView";
@@ -52,6 +54,7 @@
             this.absenceTypeListView.TabIndex = 0;
             this.absenceTypeListView.UseCompatibleStateImageBehavior = false;
             this.absenceTypeListView.View = System.Windows.Forms.View.Details;
+            this.absenceTypeListView.SelectedIndexChanged += new System.EventHandler(this.AbsenceTypeListView_SelectedIndexChanged);
             // 
             // absenceTypeID
             // 
@@ -81,7 +84,7 @@
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(75, 23);
             this.createButton.TabIndex = 2;
-            this.createButton.Text = "Create";
+            this.createButton.Text = "Erstellen";
             this.createButton.UseVisualStyleBackColor = true;
             this.createButton.Click += new System.EventHandler(this.CreateButton_Click);
             // 
