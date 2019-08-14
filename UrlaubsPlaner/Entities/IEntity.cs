@@ -8,5 +8,6 @@ namespace UrlaubsPlaner.Entities
 {
     public interface IEntity
     {
+        string TableName { get; }
     }
 }

@@ -18,6 +18,8 @@ namespace UrlaubsPlaner.Entities
         public string Phonenumber { get; set; }
         public string Email { get; set; }
 
+        public string TableName => "Employee";
+
         public Employee()
         {
         }

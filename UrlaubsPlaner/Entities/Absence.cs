@@ -16,6 +16,8 @@ namespace UrlaubsPlaner.Entities
         public DateTime ToDate { get; set; }
         public string Reason { get; set; }
 
+        public string TableName => "Absence";
+
         public Absence()
         {
         }
