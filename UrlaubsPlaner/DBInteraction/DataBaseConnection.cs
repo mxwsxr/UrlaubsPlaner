@@ -70,7 +70,7 @@ namespace UrlaubsPlaner.DBInteraction
 
         public static async Task<List<Employee>> GetEmployeesAsync()
         {
-            return await QueryDataAsync(GetSqlCommand(Querys.GetEmployees), EntityTransformations.TransformEployee);
+            return await QueryDataAsync(GetSqlCommand(Querys.GetEmployees), EntityTransformations.TransformEmployee);
         }
 
         private static List<T> GetValuesSynchronously<T>(Func<Task<List<T>>> func)

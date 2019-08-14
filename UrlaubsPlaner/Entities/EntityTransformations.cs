@@ -79,7 +79,7 @@ namespace UrlaubsPlaner.Entities
             };
         }
 
-        public static async Task<Employee> TransformEployee(SqlDataReader dataReader)
+        public static async Task<Employee> TransformEmployee(SqlDataReader dataReader)
         {
             return new Employee()
             {
@@ -98,6 +98,30 @@ namespace UrlaubsPlaner.Entities
                 City = dataReader.GetString(9),
                 Phonenumber = dataReader.GetString(10),
                 Email = dataReader.GetString(11)
+            };
+        }
+
+        public static async Task<Employee> TransformEmployeeForm(SqlDataReader dataReader)
+        {
+            return new Employee()
+            {
+                EmployeeId = dataReader.GetGuid(0),
+                EmployeeNumber = dataReader.GetInt32(1),
+                Country = new Country()
+                {
+                    CountryId = dataReader.GetGuid(2),
+                    Code = dataReader.GetString(3),
+                    Name = dataReader.GetString(4)
+                },
+                Firstname = dataReader.GetString(5),
+                Lastname = dataReader.GetString(6),
+                Birthday = await GetNullableDateTimeValue(7, dataReader),
+                Street = dataReader.GetString(8),
+                Housenumber = dataReader.GetString(9),
+                Postalcode = dataReader.GetString(10),
+                City = dataReader.GetString(11),
+                Phonenumber = dataReader.GetString(12),
+                Email = dataReader.GetString(13)
             };
         }
 
