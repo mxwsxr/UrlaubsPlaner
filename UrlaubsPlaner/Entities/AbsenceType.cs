@@ -11,8 +11,6 @@ namespace UrlaubsPlaner.Entities
         public Guid AbsenceTypeId { get; set; }
         public string Label { get; set; }
 
-        public string TableName => "AbsenceType";
-
         public AbsenceType()
         {
         }

@@ -12,8 +12,6 @@ namespace UrlaubsPlaner.Entities
         public string Name { get; set; }
         public string Code { get; set; }
 
-        public string TableName => "Country";
-
         public Country()
         {
         }
