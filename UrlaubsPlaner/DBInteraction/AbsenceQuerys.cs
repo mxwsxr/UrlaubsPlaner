@@ -16,7 +16,7 @@ namespace UrlaubsPlaner.DBInteraction
       ,[Reason]
   FROM [dbo].[Absence]";
 
-        public static readonly string GETABSENCESWHEREEMPLOYEE = 
+        public static readonly string GETABSENCESWHEREEMPLOYEE =
             GETABSENCES + @" WHERE [EmployeeID] = @EmployeeID";
 
         public static readonly string GETABSENCEVIEW = @"SELECT [AbscenceID]
@@ -40,5 +40,30 @@ namespace UrlaubsPlaner.DBInteraction
       ,[AbsenceTypeID]
       ,[Label]
   FROM [dbo].[AbsencesWithEmployeeAndAbsenceType]";
+
+        public static readonly string INSERTABSENCE =
+            @"INSERT into [dbo].[Absence]
+           ([AbscenceID]
+           ,[AbsenceTypeID]
+           ,[EmployeeID]
+           ,[FromDate]
+           ,[ToDate]
+           ,[Reason])
+     VALUES
+           (@AbscenceID
+           ,@AbsenceType
+           ,@Employee
+           ,@FromDate
+           ,@ToDate
+           ,@Reason)";
+
+        public static readonly string UPDATEABSENCE =
+            @"UPDATE [dbo].[Absence]
+               SET [AbsenceTypeID] = @AbsenceType
+                  ,[EmployeeID] = @Employee
+                  ,[FromDate] = @FromDate
+                  ,[ToDate] = @ToDate
+                  ,[Reason] = @Reason
+             WHERE [AbsenceID] = @AbsenceID";
     }
 }

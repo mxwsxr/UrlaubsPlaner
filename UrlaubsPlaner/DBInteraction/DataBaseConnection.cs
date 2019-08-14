@@ -103,6 +103,27 @@ namespace UrlaubsPlaner.DBInteraction
                 case Querys.GetAbsenceView:
                     return new SqlCommand(AbsenceQuerys.GETABSENCEVIEW);
 
+                case Querys.GetEmployeeView:
+                    return new SqlCommand(EmployeeQuerys.GETEMPLOYEEVIEW);
+
+                case Querys.InsertAbsence:
+                    return new SqlCommand(AbsenceQuerys.INSERTABSENCE);
+
+                case Querys.UpdateAbsence:
+                    return new SqlCommand(AbsenceQuerys.UPDATEABSENCE);
+
+                case Querys.InsertAbsenceType:
+                    return new SqlCommand(AbsenceTypeQuerys.INSERTABSENCETYPES);
+
+                case Querys.UpdateAbsenceType:
+                    return new SqlCommand(AbsenceTypeQuerys.UPDATEABSENCETYPES);
+
+                case Querys.InsertEmployee:
+                    return new SqlCommand(EmployeeQuerys.INSERTEMPLOYEE);
+
+                case Querys.UpdateEmployee:
+                    return new SqlCommand(EmployeeQuerys.UPDATEEMPLOYEE);
+
                 default:
                     throw new NotImplementedException($"This enum value is not implemented! {query}");
             }

@@ -13,6 +13,13 @@ namespace UrlaubsPlaner.DBInteraction
         GetEmployees,
         GetCountrys,
         GetAbsenceTypes,
-        GetAbsenceView
+        GetAbsenceView,
+        GetEmployeeView,
+        InsertAbsence,
+        UpdateAbsence,
+        InsertAbsenceType,
+        UpdateAbsenceType,
+        InsertEmployee,
+        UpdateEmployee
     }
 }

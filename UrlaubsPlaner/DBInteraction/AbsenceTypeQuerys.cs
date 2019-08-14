@@ -11,5 +11,18 @@ namespace UrlaubsPlaner.DBInteraction
         public static readonly string GETABSENCETYPES = @"SELECT [AbsenceTypeID]
       ,[Label]
   FROM [dbo].[AbsenceType]";
+
+        public static readonly string INSERTABSENCETYPES =
+            @"INSERT INTO [dbo].[AbsenceType]
+           ([AbsenceTypeID]
+           ,[Label])
+     VALUES
+           (@AbsenceTypeID
+           ,@Label)";
+
+        public static readonly string UPDATEABSENCETYPES =
+            @"UPDATE [dbo].[AbsenceType]
+               SET [Label] = @Label
+             WHERE [AbsenceTypesID] = @AbsenceTypeID";
     }
 }
