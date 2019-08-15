@@ -94,6 +94,28 @@ namespace UrlaubsPlaner.DBInteraction
             return await UpsertData(GetSqlCommand(query), absenceType, UpsertCommandSetups.SetupAbsenceTypeCommand);
         }
 
+        public static bool UpsertAbsence(Absence absence, bool isInsert)
+        {
+            return UpsertDataSynchronously(absence, isInsert, UpsertAbsenceAsync);
+        }
+
+        public static async Task<bool> UpsertAbsenceAsync(Absence absence, bool isInsert)
+        {
+            var query = isInsert ? Querys.InsertAbsence : Querys.UpdateAbsence;
+            return await UpsertData(GetSqlCommand(query), absence, UpsertCommandSetups.SetupAbsenceCommand);
+        }
+
+        public static bool UpsertEmployee(Employee employee, bool isInsert)
+        {
+            return UpsertDataSynchronously(employee, isInsert, UpsertEmployeeAsync);
+        }
+
+        public static async Task<bool> UpsertEmployeeAsync(Employee employee, bool isInsert)
+        {
+            var query = isInsert ? Querys.InsertEmployee : Querys.UpdateEmployee;
+            return await UpsertData(GetSqlCommand(query), employee, UpsertCommandSetups.SetupEmployeeCommand);
+        }
+
         private static List<T> GetValuesSynchronously<T>(Func<Task<List<T>>> func)
             where T : IEntity
         {
