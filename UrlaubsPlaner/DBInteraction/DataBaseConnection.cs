@@ -12,7 +12,7 @@ namespace UrlaubsPlaner.DBInteraction
     {
         private static readonly string ConnectionString = @"Server=(localdb)\mssqllocaldb;Database=UrlaubsPlanerDB;Trusted_Connection=True;";
 
-        private static SqlConnection SqlConnection = new SqlConnection(ConnectionString);
+        private static readonly SqlConnection SqlConnection = new SqlConnection(ConnectionString);
 
         private static bool IsConnectionOpen
         {
@@ -91,6 +91,13 @@ namespace UrlaubsPlaner.DBInteraction
             return task.Result;
         }
 
+        private static bool UpsertDataSynchronously(Func<Task<bool>> func)
+        {
+            var task = Task.Run(async () => await func());
+            task.Wait();
+            return task.Result;
+        }
+
         private static SqlCommand GetSqlCommand(Querys query)
         {
             switch (query)
@@ -137,6 +144,17 @@ namespace UrlaubsPlaner.DBInteraction
                 default:
                     throw new NotImplementedException($"This enum value is not implemented! {query}");
             }
+        }
+
+        private static async Task<bool> UpsertData(SqlCommand sqlCommand)
+        {
+            sqlCommand.Connection = SqlConnection;
+            if (!IsConnectionOpen)
+            {
+                SqlConnection.Open();
+            }
+            var queryResult = await sqlCommand.ExecuteNonQueryAsync();
+            return queryResult == 1;
         }
 
         private static async Task<List<T>> QueryData<T>(SqlCommand sqlCommand, Func<SqlDataReader, T> transformData)
