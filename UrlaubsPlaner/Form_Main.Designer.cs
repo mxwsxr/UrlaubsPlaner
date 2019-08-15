@@ -38,6 +38,8 @@
             this.Von = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Bis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gp_input = new System.Windows.Forms.GroupBox();
+            this.cbx_employee = new System.Windows.Forms.ComboBox();
+            this.cbx_absencetype = new System.Windows.Forms.ComboBox();
             this.employeebtn = new System.Windows.Forms.Button();
             this.absenceTypebtn = new System.Windows.Forms.Button();
             this.warningLabel = new System.Windows.Forms.Label();
@@ -52,8 +54,9 @@
             this.button_cancel = new System.Windows.Forms.Button();
             this.button_save = new System.Windows.Forms.Button();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.cbx_absencetype = new System.Windows.Forms.ComboBox();
-            this.cbx_employee = new System.Windows.Forms.ComboBox();
+            this.Nr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.txtbx_id = new System.Windows.Forms.TextBox();
+            this.lbl_id = new System.Windows.Forms.Label();
             this.gp_calendar.SuspendLayout();
             this.gp_input.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +75,7 @@
             // listview_event
             // 
             this.listview_event.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Nr,
             this.MitarbeiterNr,
             this.Vorname,
             this.Nachname,
@@ -91,30 +95,38 @@
             // 
             // MitarbeiterNr
             // 
+            this.MitarbeiterNr.DisplayIndex = 0;
             this.MitarbeiterNr.Text = "MitarbeiterNr";
             // 
             // Vorname
             // 
+            this.Vorname.DisplayIndex = 1;
             this.Vorname.Text = "Vorname";
             // 
             // Nachname
             // 
+            this.Nachname.DisplayIndex = 2;
             this.Nachname.Text = "Nachname";
             // 
             // Typ
             // 
+            this.Typ.DisplayIndex = 3;
             this.Typ.Text = "Typ";
             // 
             // Von
             // 
+            this.Von.DisplayIndex = 4;
             this.Von.Text = "Von";
             // 
             // Bis
             // 
+            this.Bis.DisplayIndex = 5;
             this.Bis.Text = "Bis";
             // 
             // gp_input
             // 
+            this.gp_input.Controls.Add(this.lbl_id);
+            this.gp_input.Controls.Add(this.txtbx_id);
             this.gp_input.Controls.Add(this.cbx_employee);
             this.gp_input.Controls.Add(this.cbx_absencetype);
             this.gp_input.Controls.Add(this.employeebtn);
@@ -137,6 +149,23 @@
             this.gp_input.TabIndex = 1;
             this.gp_input.TabStop = false;
             this.gp_input.Text = "Eingabe";
+            // 
+            // cbx_employee
+            // 
+            this.cbx_employee.FormattingEnabled = true;
+            this.cbx_employee.Location = new System.Drawing.Point(400, 68);
+            this.cbx_employee.Name = "cbx_employee";
+            this.cbx_employee.Size = new System.Drawing.Size(121, 21);
+            this.cbx_employee.TabIndex = 18;
+            this.cbx_employee.SelectedValueChanged += new System.EventHandler(this.Cbx_employee_SelectedValueChanged);
+            // 
+            // cbx_absencetype
+            // 
+            this.cbx_absencetype.FormattingEnabled = true;
+            this.cbx_absencetype.Location = new System.Drawing.Point(400, 99);
+            this.cbx_absencetype.Name = "cbx_absencetype";
+            this.cbx_absencetype.Size = new System.Drawing.Size(121, 21);
+            this.cbx_absencetype.TabIndex = 17;
             // 
             // employeebtn
             // 
@@ -264,22 +293,29 @@
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 0;
             // 
-            // cbx_absencetype
+            // Nr
             // 
-            this.cbx_absencetype.FormattingEnabled = true;
-            this.cbx_absencetype.Location = new System.Drawing.Point(400, 99);
-            this.cbx_absencetype.Name = "cbx_absencetype";
-            this.cbx_absencetype.Size = new System.Drawing.Size(121, 21);
-            this.cbx_absencetype.TabIndex = 17;
+            this.Nr.DisplayIndex = 6;
+            this.Nr.Text = "Nr";
             // 
-            // cbx_employee
+            // txtbx_id
             // 
-            this.cbx_employee.FormattingEnabled = true;
-            this.cbx_employee.Location = new System.Drawing.Point(400, 68);
-            this.cbx_employee.Name = "cbx_employee";
-            this.cbx_employee.Size = new System.Drawing.Size(121, 21);
-            this.cbx_employee.TabIndex = 18;
-            this.cbx_employee.SelectedValueChanged += new System.EventHandler(this.Cbx_employee_SelectedValueChanged);
+            this.txtbx_id.Enabled = false;
+            this.txtbx_id.Location = new System.Drawing.Point(400, 127);
+            this.txtbx_id.Name = "txtbx_id";
+            this.txtbx_id.Size = new System.Drawing.Size(121, 20);
+            this.txtbx_id.TabIndex = 19;
+            this.txtbx_id.Visible = false;
+            // 
+            // lbl_id
+            // 
+            this.lbl_id.AutoSize = true;
+            this.lbl_id.Location = new System.Drawing.Point(312, 127);
+            this.lbl_id.Name = "lbl_id";
+            this.lbl_id.Size = new System.Drawing.Size(21, 13);
+            this.lbl_id.TabIndex = 20;
+            this.lbl_id.Text = "ID:";
+            this.lbl_id.Visible = false;
             // 
             // Form_Main
             // 
@@ -326,6 +362,9 @@
         private System.Windows.Forms.Button absenceTypebtn;
         private System.Windows.Forms.ComboBox cbx_absencetype;
         private System.Windows.Forms.ComboBox cbx_employee;
+        private System.Windows.Forms.ColumnHeader Nr;
+        private System.Windows.Forms.Label lbl_id;
+        private System.Windows.Forms.TextBox txtbx_id;
     }
 }
 
