@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.gp_calendar = new System.Windows.Forms.GroupBox();
             this.listview_event = new System.Windows.Forms.ListView();
+            this.Nr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MitarbeiterNr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Vorname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nachname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -38,6 +39,9 @@
             this.Von = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Bis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gp_input = new System.Windows.Forms.GroupBox();
+            this.btn_clear = new System.Windows.Forms.Button();
+            this.lbl_id = new System.Windows.Forms.Label();
+            this.txtbx_id = new System.Windows.Forms.TextBox();
             this.cbx_employee = new System.Windows.Forms.ComboBox();
             this.cbx_absencetype = new System.Windows.Forms.ComboBox();
             this.employeebtn = new System.Windows.Forms.Button();
@@ -54,9 +58,6 @@
             this.button_cancel = new System.Windows.Forms.Button();
             this.button_save = new System.Windows.Forms.Button();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.Nr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.txtbx_id = new System.Windows.Forms.TextBox();
-            this.lbl_id = new System.Windows.Forms.Label();
             this.gp_calendar.SuspendLayout();
             this.gp_input.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +71,6 @@
             this.gp_calendar.TabIndex = 0;
             this.gp_calendar.TabStop = false;
             this.gp_calendar.Text = "Kalender";
-            this.gp_calendar.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
             // listview_event
             // 
@@ -83,7 +83,6 @@
             this.Von,
             this.Bis});
             this.listview_event.FullRowSelect = true;
-            this.listview_event.GridLines = true;
             this.listview_event.Location = new System.Drawing.Point(6, 15);
             this.listview_event.MultiSelect = false;
             this.listview_event.Name = "listview_event";
@@ -92,6 +91,11 @@
             this.listview_event.UseCompatibleStateImageBehavior = false;
             this.listview_event.View = System.Windows.Forms.View.Details;
             this.listview_event.SelectedIndexChanged += new System.EventHandler(this.Listview_event_SelectedIndexChanged);
+            // 
+            // Nr
+            // 
+            this.Nr.DisplayIndex = 6;
+            this.Nr.Text = "Nr";
             // 
             // MitarbeiterNr
             // 
@@ -125,6 +129,7 @@
             // 
             // gp_input
             // 
+            this.gp_input.Controls.Add(this.btn_clear);
             this.gp_input.Controls.Add(this.lbl_id);
             this.gp_input.Controls.Add(this.txtbx_id);
             this.gp_input.Controls.Add(this.cbx_employee);
@@ -149,6 +154,36 @@
             this.gp_input.TabIndex = 1;
             this.gp_input.TabStop = false;
             this.gp_input.Text = "Eingabe";
+            // 
+            // btn_clear
+            // 
+            this.btn_clear.Location = new System.Drawing.Point(131, 851);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(75, 23);
+            this.btn_clear.TabIndex = 21;
+            this.btn_clear.Text = "Leeren";
+            this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Visible = false;
+            this.btn_clear.Click += new System.EventHandler(this.Btn_clear_Click);
+            // 
+            // lbl_id
+            // 
+            this.lbl_id.AutoSize = true;
+            this.lbl_id.Location = new System.Drawing.Point(312, 127);
+            this.lbl_id.Name = "lbl_id";
+            this.lbl_id.Size = new System.Drawing.Size(21, 13);
+            this.lbl_id.TabIndex = 20;
+            this.lbl_id.Text = "ID:";
+            this.lbl_id.Visible = false;
+            // 
+            // txtbx_id
+            // 
+            this.txtbx_id.Enabled = false;
+            this.txtbx_id.Location = new System.Drawing.Point(400, 127);
+            this.txtbx_id.Name = "txtbx_id";
+            this.txtbx_id.Size = new System.Drawing.Size(121, 20);
+            this.txtbx_id.TabIndex = 19;
+            this.txtbx_id.Visible = false;
             // 
             // cbx_employee
             // 
@@ -221,7 +256,6 @@
             this.label_reason.Size = new System.Drawing.Size(39, 13);
             this.label_reason.TabIndex = 9;
             this.label_reason.Text = "Grund:";
-            this.label_reason.Click += new System.EventHandler(this.Label1_Click_2);
             // 
             // label_employeeNumber
             // 
@@ -249,7 +283,6 @@
             this.label_firstname.Size = new System.Drawing.Size(52, 13);
             this.label_firstname.TabIndex = 6;
             this.label_firstname.Text = "Vorname:";
-            this.label_firstname.Click += new System.EventHandler(this.Label1_Click);
             // 
             // textbox_lastname
             // 
@@ -285,37 +318,12 @@
             this.button_save.TabIndex = 1;
             this.button_save.Text = "Speichern";
             this.button_save.UseVisualStyleBackColor = true;
-            this.button_save.Click += new System.EventHandler(this.Button_save_Click);
             // 
             // monthCalendar
             // 
             this.monthCalendar.Location = new System.Drawing.Point(12, 15);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.TabIndex = 0;
-            // 
-            // Nr
-            // 
-            this.Nr.DisplayIndex = 6;
-            this.Nr.Text = "Nr";
-            // 
-            // txtbx_id
-            // 
-            this.txtbx_id.Enabled = false;
-            this.txtbx_id.Location = new System.Drawing.Point(400, 127);
-            this.txtbx_id.Name = "txtbx_id";
-            this.txtbx_id.Size = new System.Drawing.Size(121, 20);
-            this.txtbx_id.TabIndex = 19;
-            this.txtbx_id.Visible = false;
-            // 
-            // lbl_id
-            // 
-            this.lbl_id.AutoSize = true;
-            this.lbl_id.Location = new System.Drawing.Point(312, 127);
-            this.lbl_id.Name = "lbl_id";
-            this.lbl_id.Size = new System.Drawing.Size(21, 13);
-            this.lbl_id.TabIndex = 20;
-            this.lbl_id.Text = "ID:";
-            this.lbl_id.Visible = false;
             // 
             // Form_Main
             // 
@@ -365,6 +373,7 @@
         private System.Windows.Forms.ColumnHeader Nr;
         private System.Windows.Forms.Label lbl_id;
         private System.Windows.Forms.TextBox txtbx_id;
+        private System.Windows.Forms.Button btn_clear;
     }
 }
 

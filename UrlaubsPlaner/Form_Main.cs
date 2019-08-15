@@ -14,6 +14,7 @@ namespace UrlaubsPlaner
 {
     public partial class Form_Main : Form
     {
+        private bool IsInsert = true;
         private List<Absence> Absences;
         private List<AbsenceType> AbsenceTypes;
         private List<Employee> Employees;
@@ -56,41 +57,6 @@ namespace UrlaubsPlaner
             cbx_employee.Items.AddRange(Employees.ToArray());
         }
 
-        private void GroupBox1_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Label1_Click_1(object sender, EventArgs e)
-        {
-        }
-
-        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void Button_save_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label1_Click_2(object sender, EventArgs e)
-        {
-        }
-
-        private void Combobox_absencetype_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Listview_event_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Employeebtn_Click(object sender, EventArgs e)
         {
             Employee_Form.Show();
@@ -125,9 +91,17 @@ namespace UrlaubsPlaner
 
         private void Cbx_employee_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (cbx_employee.SelectedItem == null)
+            {
+                textbox_firstname.Text = string.Empty;
+                textbox_lastname.Text = string.Empty;
+            }
+            else
+            {
             var employee = CbxAsEmployee(cbx_employee);
             textbox_firstname.Text = employee.Firstname;
             textbox_lastname.Text = employee.Lastname;
+            }
 
             Employee CbxAsEmployee(ComboBox box)
             {
@@ -137,6 +111,48 @@ namespace UrlaubsPlaner
                 }
                 throw new InvalidOperationException("This combobox should contain employee objects!");
             }
+        }
+
+        private void Listview_event_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listview_event.SelectedIndices.Count == 1)
+            {
+                var index = listview_event.SelectedIndices[0];
+                var selectedItem = Absences[index];
+                txtbx_id.Text = selectedItem.AbsenceID.ToString();
+                cbx_employee.SelectedItem = Employees.Find(x => x.EmployeeId == selectedItem.Employee.EmployeeId);
+                cbx_absencetype.SelectedItem = AbsenceTypes.Find(x => x.AbsenceTypeId == selectedItem.AbsenceType.AbsenceTypeId);
+
+                ToggleInsertOrUpdate(true);
+            }
+        }
+
+        private void Btn_clear_Click(object sender, EventArgs e)
+        {
+            ToggleInsertOrUpdate(false);
+        }
+
+        private void ToggleInsertOrUpdate(bool visible)
+        {
+            IsInsert = !visible;
+            ToggleButtonVisibility(visible);
+
+            if (!visible)
+                ClearTextBoxes();
+        }
+
+        private void ToggleButtonVisibility(bool visible)
+        {
+            txtbx_id.Visible = visible;
+            lbl_id.Visible = visible;
+            btn_clear.Visible = visible;
+        }
+
+        private void ClearTextBoxes()
+        {
+            txtbx_id.Text = string.Empty;
+            cbx_employee.SelectedItem = null;
+            cbx_absencetype.SelectedItem = null;
         }
     }
 }
