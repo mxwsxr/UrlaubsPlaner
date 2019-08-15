@@ -23,6 +23,6 @@ namespace UrlaubsPlaner.DBInteraction
         public static readonly string UPDATEABSENCETYPES =
             @"UPDATE [dbo].[AbsenceType]
                SET [Label] = @Label
-             WHERE [AbsenceTypesID] = @AbsenceTypeID";
+             WHERE [AbsenceTypeID] = @AbsenceTypeID";
     }
 }
