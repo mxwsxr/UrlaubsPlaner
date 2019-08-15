@@ -18,8 +18,8 @@ namespace UrlaubsPlaner
         private List<Absence> Absences;
         private List<AbsenceType> AbsenceTypes;
         private List<Employee> Employees;
-        private Employee_Form Employee_Form;
-        private AbsenceType_Form AbsenceType_Form;
+        private readonly Employee_Form Employee_Form;
+        private readonly AbsenceType_Form AbsenceType_Form;
 
 
         public Form_Main()
