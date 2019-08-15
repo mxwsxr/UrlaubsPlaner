@@ -37,6 +37,15 @@ namespace UrlaubsPlaner
 
         private void Form_MainLoad(object sender, EventArgs e)
         {
+            UpdateAllData();
+        }
+
+        private void UpdateAllData()
+        {
+            listview_event.Items.Clear();
+            cbx_absencetype.Items.Clear();
+            cbx_employee.Items.Clear();
+
             Absences = DataBaseConnection.GetFullAbsences();
             AbsenceTypes = DataBaseConnection.GetAbsenceTypes();
             Employees = DataBaseConnection.GetEmployees();
@@ -75,6 +84,7 @@ namespace UrlaubsPlaner
             }
             else
             {
+                UpdateAllData();
                 this.Show();
             }
         }
