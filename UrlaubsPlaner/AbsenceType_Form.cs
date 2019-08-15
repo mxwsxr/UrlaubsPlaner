@@ -14,7 +14,9 @@ namespace UrlaubsPlaner
 {
     public partial class AbsenceType_Form : Form
     {
-        List<AbsenceType> AbsenceTypes;
+        private bool IsInsert = false;
+        private List<AbsenceType> AbsenceTypes;
+
 
         public AbsenceType_Form()
         {
@@ -50,7 +52,49 @@ namespace UrlaubsPlaner
                 var index = absenceTypeListView.SelectedIndices[0];
                 var listViewItem = absenceTypeListView.Items[index];
                 absenceType_Label.Text = listViewItem.SubItems[1].Text;
+                txbx_id.Text = listViewItem.SubItems[0].Text;
+                ToggleInsertOrUpdate(true);
             }
+        }
+
+        private void ToggleInsertOrUpdate(bool visible)
+        {
+            IsInsert = visible;
+            ToggleButtonVisibility(visible);
+            ChangeButtonText(!visible);
+
+            if (!visible)
+                ClearTextBoxes();
+        }
+
+        private void ToggleButtonVisibility(bool visible)
+        {
+            txbx_id.Visible = visible;
+            lb_Id.Visible = visible;
+            btn_clear.Visible = visible;
+        }
+
+        private void ClearTextBoxes()
+        {
+            txbx_id.Text = string.Empty;
+            absenceType_Label.Text = string.Empty;
+        }
+
+        private void ChangeButtonText(bool isInsert)
+        {
+            if (isInsert)
+            {
+                createButton.Text = "Erstellen";
+            }
+            else
+            {
+                createButton.Text = "Aktualisieren";
+            }
+        }
+
+        private void Btn_clear_Click(object sender, EventArgs e)
+        {
+            ToggleInsertOrUpdate(false);
         }
     }
 }

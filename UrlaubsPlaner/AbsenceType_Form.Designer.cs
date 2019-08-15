@@ -37,6 +37,9 @@
             this.absenceTypeLabel = new System.Windows.Forms.Label();
             this.absenceType_Label = new System.Windows.Forms.TextBox();
             this.cancelBtn = new System.Windows.Forms.Button();
+            this.btn_clear = new System.Windows.Forms.Button();
+            this.txbx_id = new System.Windows.Forms.TextBox();
+            this.lb_Id = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,19 +71,22 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lb_Id);
+            this.groupBox1.Controls.Add(this.txbx_id);
+            this.groupBox1.Controls.Add(this.btn_clear);
             this.groupBox1.Controls.Add(this.createButton);
             this.groupBox1.Controls.Add(this.absenceTypeLabel);
             this.groupBox1.Controls.Add(this.absenceType_Label);
             this.groupBox1.Location = new System.Drawing.Point(397, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(391, 161);
+            this.groupBox1.Size = new System.Drawing.Size(391, 230);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new AbsenceType";
             // 
             // createButton
             // 
-            this.createButton.Location = new System.Drawing.Point(161, 120);
+            this.createButton.Location = new System.Drawing.Point(268, 190);
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(75, 23);
             this.createButton.TabIndex = 2;
@@ -91,7 +97,7 @@
             // absenceTypeLabel
             // 
             this.absenceTypeLabel.AutoSize = true;
-            this.absenceTypeLabel.Location = new System.Drawing.Point(70, 47);
+            this.absenceTypeLabel.Location = new System.Drawing.Point(70, 131);
             this.absenceTypeLabel.Name = "absenceTypeLabel";
             this.absenceTypeLabel.Size = new System.Drawing.Size(33, 13);
             this.absenceTypeLabel.TabIndex = 1;
@@ -99,7 +105,7 @@
             // 
             // absenceType_Label
             // 
-            this.absenceType_Label.Location = new System.Drawing.Point(70, 66);
+            this.absenceType_Label.Location = new System.Drawing.Point(70, 150);
             this.absenceType_Label.Name = "absenceType_Label";
             this.absenceType_Label.Size = new System.Drawing.Size(274, 20);
             this.absenceType_Label.TabIndex = 0;
@@ -113,6 +119,36 @@
             this.cancelBtn.Text = "Abbrechen";
             this.cancelBtn.UseVisualStyleBackColor = true;
             this.cancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
+            // btn_clear
+            // 
+            this.btn_clear.Location = new System.Drawing.Point(70, 190);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(75, 23);
+            this.btn_clear.TabIndex = 3;
+            this.btn_clear.Text = "Leeren";
+            this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Visible = false;
+            this.btn_clear.Click += new System.EventHandler(this.Btn_clear_Click);
+            // 
+            // txbx_id
+            // 
+            this.txbx_id.Enabled = false;
+            this.txbx_id.Location = new System.Drawing.Point(70, 80);
+            this.txbx_id.Name = "txbx_id";
+            this.txbx_id.Size = new System.Drawing.Size(274, 20);
+            this.txbx_id.TabIndex = 4;
+            this.txbx_id.Visible = false;
+            // 
+            // lb_Id
+            // 
+            this.lb_Id.AutoSize = true;
+            this.lb_Id.Location = new System.Drawing.Point(70, 61);
+            this.lb_Id.Name = "lb_Id";
+            this.lb_Id.Size = new System.Drawing.Size(18, 13);
+            this.lb_Id.TabIndex = 5;
+            this.lb_Id.Text = "ID";
+            this.lb_Id.Visible = false;
             // 
             // AbsenceType_Form
             // 
@@ -142,5 +178,8 @@
         private System.Windows.Forms.Label absenceTypeLabel;
         private System.Windows.Forms.TextBox absenceType_Label;
         private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.Button btn_clear;
+        private System.Windows.Forms.Label lb_Id;
+        private System.Windows.Forms.TextBox txbx_id;
     }
 }
