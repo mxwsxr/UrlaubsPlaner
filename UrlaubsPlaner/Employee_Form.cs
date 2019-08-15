@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UrlaubsPlaner.DBInteraction;
 using UrlaubsPlaner.Entities;
@@ -26,10 +22,16 @@ namespace UrlaubsPlaner
 
         private void Employee_Form_Load(object sender, EventArgs e)
         {
-            Employees = DataBaseConnection.GetFullEmployees();
             Countries = DataBaseConnection.GetCountries();
             cbx_country.Items.AddRange(Countries.ToArray());
 
+            UpdateEmployeeListView();
+        }
+
+        private void UpdateEmployeeListView()
+        {
+            employeeListView.Items.Clear();
+            Employees = DataBaseConnection.GetFullEmployees();
             employeeListView.Items.AddRange(Employees.Select(x
                 => new ListViewItem(new string[]
                 {
@@ -49,7 +51,45 @@ namespace UrlaubsPlaner
 
         private void Btn_create_Click(object sender, EventArgs e)
         {
+            DataBaseConnection.UpsertEmployee(GetCurrentEmployee(), IsInsert);
+            UpdateEmployeeListView();
+        }
 
+        private Employee GetCurrentEmployee()
+        {
+            if (IsInsert)
+            {
+                return new Employee()
+                {
+                    Birthday = dtm_birthday.Value,
+                    City = txtbx_city.Text,
+                    Country = cbx_country.SelectedItem as Country,
+                    Email = txtbx_email.Text,
+                    EmployeeId = Guid.NewGuid(),
+                    EmployeeNumber = Employees.Max(x => x.EmployeeNumber) + 1,
+                    Firstname = txtbx_firstname.Text,
+                    Housenumber = txtbx_housenumber.Text,
+                    Lastname = txtbx_lastname.Text,
+                    Phonenumber = txtbx_telefonnumber.Text,
+                    Postalcode = txtbx_postalcode.Text,
+                    Street = txtbx_street.Text
+                };
+            }
+            else
+            {
+                Employee selected = Employees.Find(x => x.EmployeeId.ToString() == txtbx_id.Text);
+                selected.Birthday = dtm_birthday.Value;
+                selected.City = txtbx_city.Text;
+                selected.Country = cbx_country.SelectedItem as Country;
+                selected.Email = txtbx_email.Text;
+                selected.Firstname = txtbx_firstname.Text;
+                selected.Housenumber = txtbx_housenumber.Text;
+                selected.Lastname = txtbx_lastname.Text;
+                selected.Phonenumber = txtbx_telefonnumber.Text;
+                selected.Postalcode = txtbx_postalcode.Text;
+                selected.Street = txtbx_street.Text;
+                return selected;
+            }
         }
 
         private void EmployeeListView_SelectedIndexChanged(object sender, EventArgs e)
