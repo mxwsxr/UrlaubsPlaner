@@ -68,6 +68,7 @@
     <Compile Include="DBInteraction\CountryQuerys.cs" />
     <Compile Include="DBInteraction\EmployeeQuerys.cs" />
     <Compile Include="DBInteraction\Querys.cs" />
+    <Compile Include="DBInteraction\UpsertCommandSetups.cs" />
     <Compile Include="Employee_Form.cs">
       <SubType>Form</SubType>
     </Compile>
