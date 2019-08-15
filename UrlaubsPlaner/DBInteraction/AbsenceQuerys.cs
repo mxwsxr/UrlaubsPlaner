@@ -8,7 +8,7 @@ namespace UrlaubsPlaner.DBInteraction
 {
     public static class AbsenceQuerys
     {
-        public static readonly string GETABSENCES = @"SELECT [AbscenceID]
+        public static readonly string GETABSENCES = @"SELECT [AbsenceID]
       ,[AbsenceTypeID]
       ,[EmployeeID]
       ,[FromDate]
@@ -19,7 +19,7 @@ namespace UrlaubsPlaner.DBInteraction
         public static readonly string GETABSENCESWHEREEMPLOYEE =
             GETABSENCES + @" WHERE [EmployeeID] = @EmployeeID";
 
-        public static readonly string GETABSENCEVIEW = @"SELECT [AbscenceID]
+        public static readonly string GETABSENCEVIEW = @"SELECT [AbsenceID]
       ,[FromDate]
       ,[ToDate]
       ,[Reason]
@@ -43,14 +43,14 @@ namespace UrlaubsPlaner.DBInteraction
 
         public static readonly string INSERTABSENCE =
             @"INSERT into [dbo].[Absence]
-           ([AbscenceID]
+           ([AbsenceID]
            ,[AbsenceTypeID]
            ,[EmployeeID]
            ,[FromDate]
            ,[ToDate]
            ,[Reason])
      VALUES
-           (@AbscenceID
+           (@AbsenceID
            ,@AbsenceType
            ,@Employee
            ,@FromDate
