@@ -39,7 +39,7 @@ namespace UrlaubsPlaner
                     x.Firstname,
                     x.Lastname,
                     x.Email
-                })).ToArray());            
+                })).ToArray());
         }
 
         private void Cancelbtn_Click(object sender, EventArgs e)
@@ -62,8 +62,19 @@ namespace UrlaubsPlaner
             if (employeeListView.SelectedIndices.Count == 1)
             {
                 var index = employeeListView.SelectedIndices[0];
-                var listViewItem = employeeListView.Items[index];
-                txtbx_firstname.Text = listViewItem.SubItems[3].Text;
+                var selectedItem = Employees[index];
+                txtbx_firstname.Text = selectedItem.Firstname;
+                txtbx_city.Text = selectedItem.City;
+                txtbx_email.Text = selectedItem.Email;
+                txtbx_housenumber.Text = selectedItem.Housenumber;
+                txtbx_id.Text = selectedItem.EmployeeId.ToString();
+                txtbx_lastname.Text = selectedItem.Lastname;
+                txtbx_number.Text = selectedItem.EmployeeNumber.ToString();
+                txtbx_postalcode.Text = selectedItem.Postalcode;
+                txtbx_street.Text = selectedItem.Street;
+                txtbx_telefonnumber.Text = selectedItem.Phonenumber;
+                dtm_birthday.Value = selectedItem.Birthday.GetValueOrDefault();
+                cbx_country.SelectedItem = Countries.Find(x => x.CountryId == selectedItem.Country.CountryId);
 
                 ToggleInsertOrUpdate(true);
             }
@@ -98,7 +109,10 @@ namespace UrlaubsPlaner
             txtbx_number.Text = string.Empty;
             txtbx_postalcode.Text = string.Empty;
             txtbx_street.Text = string.Empty;
+            txtbx_housenumber.Text = string.Empty;
             txtbx_telefonnumber.Text = string.Empty;
+            dtm_birthday.Value = DateTime.Now;
+            cbx_country.SelectedItem = null;
         }
 
         private void ChangeButtonText(bool isInsert)
