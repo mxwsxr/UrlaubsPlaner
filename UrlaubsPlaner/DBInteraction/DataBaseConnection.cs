@@ -83,6 +83,17 @@ namespace UrlaubsPlaner.DBInteraction
             return await QueryDataAsync(GetSqlCommand(Querys.GetEmployeeView), EntityTransformations.TransformEmployeeView);
         }
 
+        public static bool UpsertAbsenceType(AbsenceType absenceType, bool isInsert)
+        {
+            return UpsertDataSynchronously(absenceType, isInsert, UpsertAbsenceTypeAsync);
+        }
+
+        public static async Task<bool> UpsertAbsenceTypeAsync(AbsenceType absenceType, bool isInsert)
+        {
+            var query = isInsert ? Querys.InsertAbsenceType : Querys.UpdateAbsenceType;
+            return await UpsertData(GetSqlCommand(query), absenceType, UpsertCommandSetups.SetupAbsenceTypeCommand);
+        }
+
         private static List<T> GetValuesSynchronously<T>(Func<Task<List<T>>> func)
             where T : IEntity
         {
@@ -91,9 +102,10 @@ namespace UrlaubsPlaner.DBInteraction
             return task.Result;
         }
 
-        private static bool UpsertDataSynchronously(Func<Task<bool>> func)
+        private static bool UpsertDataSynchronously<T>(T data, bool isInsert,Func<T,bool,Task<bool>> func)
+            where T : IUpsertable
         {
-            var task = Task.Run(async () => await func());
+            var task = Task.Run(async () => await func(data, isInsert));
             task.Wait();
             return task.Result;
         }
@@ -146,8 +158,10 @@ namespace UrlaubsPlaner.DBInteraction
             }
         }
 
-        private static async Task<bool> UpsertData(SqlCommand sqlCommand)
+        private static async Task<bool> UpsertData<T>(SqlCommand sqlCommand, T data, Func<SqlCommand, T,SqlCommand> sqlcmdParameterSetup)
+            where T : IUpsertable
         {
+            var preparedCmd = sqlcmdParameterSetup(sqlCommand, data);
             sqlCommand.Connection = SqlConnection;
             if (!IsConnectionOpen)
             {
