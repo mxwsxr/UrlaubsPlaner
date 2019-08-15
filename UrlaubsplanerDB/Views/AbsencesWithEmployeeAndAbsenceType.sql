@@ -1,6 +1,6 @@
 ﻿CREATE VIEW [dbo].[AbsencesWithEmployeeAndAbsenceType]
 	AS 
-	SELECT a.[AbscenceID]
+	SELECT a.[AbsenceID]
 	  ,a.[FromDate]
       ,a.[ToDate]
       ,a.[Reason]
