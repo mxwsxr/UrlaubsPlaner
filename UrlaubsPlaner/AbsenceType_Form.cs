@@ -14,7 +14,7 @@ namespace UrlaubsPlaner
 {
     public partial class AbsenceType_Form : Form
     {
-        private bool IsInsert = false;
+        private bool IsInsert = true;
         private List<AbsenceType> AbsenceTypes;
 
 
@@ -59,7 +59,7 @@ namespace UrlaubsPlaner
 
         private void ToggleInsertOrUpdate(bool visible)
         {
-            IsInsert = visible;
+            IsInsert = !visible;
             ToggleButtonVisibility(visible);
             ChangeButtonText(!visible);
 
