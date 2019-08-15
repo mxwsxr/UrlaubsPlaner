@@ -52,11 +52,6 @@ namespace UrlaubsPlaner
 
         }
 
-        private void EmployeeListView_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void EmployeeListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (employeeListView.SelectedIndices.Count == 1)

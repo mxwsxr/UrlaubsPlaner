@@ -92,7 +92,6 @@
             this.employeeListView.UseCompatibleStateImageBehavior = false;
             this.employeeListView.View = System.Windows.Forms.View.Details;
             this.employeeListView.SelectedIndexChanged += new System.EventHandler(this.EmployeeListView_SelectedIndexChanged);
-            this.employeeListView.Click += new System.EventHandler(this.EmployeeListView_Click);
             // 
             // employeeID
             // 
