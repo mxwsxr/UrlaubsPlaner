@@ -26,11 +26,18 @@ namespace UrlaubsPlaner
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
-
+            DataBaseConnection.UpsertAbsenceType(new AbsenceType() { AbsenceTypeId = txbx_id.Text != string.Empty ? new Guid(txbx_id.Text) : Guid.NewGuid(), Label = absenceType_Label.Text }, IsInsert);
+            UpdataAbsenceTypes();
         }
 
         private void AbsenceType_Form_Load(object sender, EventArgs e)
         {
+            UpdataAbsenceTypes();
+        }
+
+        private void UpdataAbsenceTypes()
+        {
+            absenceTypeListView.Items.Clear();
             AbsenceTypes = DataBaseConnection.GetAbsenceTypes();
             absenceTypeListView.Items.AddRange(AbsenceTypes.Select(x
                 => new ListViewItem(new string[]
