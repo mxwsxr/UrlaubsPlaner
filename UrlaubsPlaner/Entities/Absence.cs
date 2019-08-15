@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UrlaubsPlaner.Entities
 {
-    public class Absence : IEntity
+    public class Absence : IUpsertable
     {
         public Guid AbsenceID { get; set; }
         public AbsenceType AbsenceType { get; set; }

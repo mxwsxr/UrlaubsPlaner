@@ -3,7 +3,7 @@ using UrlaubsPlaner.Entities;
 
 namespace UrlaubsPlaner.Entities
 {
-    public class Employee : IEntity
+    public class Employee : IUpsertable
     {
         public Guid EmployeeId { get; set; }
         public int EmployeeNumber { get; set; }
