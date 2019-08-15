@@ -14,6 +14,7 @@ namespace UrlaubsPlaner
 {
     public partial class Employee_Form : Form
     {
+        private bool IsInsert = true;
         private List<Country> Countries;
         private List<Employee> Employees;
 
@@ -63,7 +64,58 @@ namespace UrlaubsPlaner
                 var index = employeeListView.SelectedIndices[0];
                 var listViewItem = employeeListView.Items[index];
                 txtbx_firstname.Text = listViewItem.SubItems[3].Text;
+
+                ToggleInsertOrUpdate(true);
             }
+        }
+
+        private void ToggleInsertOrUpdate(bool visible)
+        {
+            IsInsert = !visible;
+            ToggleButtonVisibility(visible);
+            ChangeButtonText(!visible);
+
+            if (!visible)
+                ClearTextBoxes();
+        }
+
+        private void ToggleButtonVisibility(bool visible)
+        {
+            txtbx_id.Visible = visible;
+            lbl_ID.Visible = visible;
+            btn_clear.Visible = visible;
+            txtbx_number.Visible = visible;
+            lbl_number.Visible = visible;
+        }
+
+        private void ClearTextBoxes()
+        {
+            txtbx_id.Text = string.Empty;
+            txtbx_city.Text = string.Empty;
+            txtbx_email.Text = string.Empty;
+            txtbx_firstname.Text = string.Empty;
+            txtbx_lastname.Text = string.Empty;
+            txtbx_number.Text = string.Empty;
+            txtbx_postalcode.Text = string.Empty;
+            txtbx_street.Text = string.Empty;
+            txtbx_telefonnumber.Text = string.Empty;
+        }
+
+        private void ChangeButtonText(bool isInsert)
+        {
+            if (isInsert)
+            {
+                btn_create.Text = "Erstellen";
+            }
+            else
+            {
+                btn_create.Text = "Aktualisieren";
+            }
+        }
+
+        private void Btn_clear_Click(object sender, EventArgs e)
+        {
+            ToggleInsertOrUpdate(false);
         }
     }
 }

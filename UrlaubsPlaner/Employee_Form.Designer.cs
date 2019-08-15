@@ -58,6 +58,11 @@
             this.cbx_country = new System.Windows.Forms.ComboBox();
             this.lbl_country = new System.Windows.Forms.Label();
             this.btn_create = new System.Windows.Forms.Button();
+            this.btn_clear = new System.Windows.Forms.Button();
+            this.txtbx_id = new System.Windows.Forms.TextBox();
+            this.lbl_ID = new System.Windows.Forms.Label();
+            this.lbl_number = new System.Windows.Forms.Label();
+            this.txtbx_number = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cancelbtn
@@ -278,7 +283,7 @@
             // 
             // btn_create
             // 
-            this.btn_create.Location = new System.Drawing.Point(413, 405);
+            this.btn_create.Location = new System.Drawing.Point(515, 405);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(75, 23);
             this.btn_create.TabIndex = 22;
@@ -286,11 +291,65 @@
             this.btn_create.UseVisualStyleBackColor = true;
             this.btn_create.Click += new System.EventHandler(this.Btn_create_Click);
             // 
+            // btn_clear
+            // 
+            this.btn_clear.Location = new System.Drawing.Point(414, 405);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(75, 23);
+            this.btn_clear.TabIndex = 23;
+            this.btn_clear.Text = "Leeren";
+            this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Visible = false;
+            this.btn_clear.Click += new System.EventHandler(this.Btn_clear_Click);
+            // 
+            // txtbx_id
+            // 
+            this.txtbx_id.Enabled = false;
+            this.txtbx_id.Location = new System.Drawing.Point(588, 287);
+            this.txtbx_id.Name = "txtbx_id";
+            this.txtbx_id.Size = new System.Drawing.Size(170, 20);
+            this.txtbx_id.TabIndex = 24;
+            this.txtbx_id.Visible = false;
+            // 
+            // lbl_ID
+            // 
+            this.lbl_ID.AutoSize = true;
+            this.lbl_ID.Location = new System.Drawing.Point(410, 287);
+            this.lbl_ID.Name = "lbl_ID";
+            this.lbl_ID.Size = new System.Drawing.Size(18, 13);
+            this.lbl_ID.TabIndex = 25;
+            this.lbl_ID.Text = "ID";
+            this.lbl_ID.Visible = false;
+            // 
+            // lbl_number
+            // 
+            this.lbl_number.AutoSize = true;
+            this.lbl_number.Location = new System.Drawing.Point(409, 314);
+            this.lbl_number.Name = "lbl_number";
+            this.lbl_number.Size = new System.Drawing.Size(21, 13);
+            this.lbl_number.TabIndex = 26;
+            this.lbl_number.Text = "Nr.";
+            this.lbl_number.Visible = false;
+            // 
+            // txtbx_number
+            // 
+            this.txtbx_number.Enabled = false;
+            this.txtbx_number.Location = new System.Drawing.Point(588, 314);
+            this.txtbx_number.Name = "txtbx_number";
+            this.txtbx_number.Size = new System.Drawing.Size(170, 20);
+            this.txtbx_number.TabIndex = 27;
+            this.txtbx_number.Visible = false;
+            // 
             // Employee_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtbx_number);
+            this.Controls.Add(this.lbl_number);
+            this.Controls.Add(this.lbl_ID);
+            this.Controls.Add(this.txtbx_id);
+            this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_create);
             this.Controls.Add(this.lbl_country);
             this.Controls.Add(this.cbx_country);
@@ -354,5 +413,10 @@
         private System.Windows.Forms.ComboBox cbx_country;
         private System.Windows.Forms.Label lbl_country;
         private System.Windows.Forms.Button btn_create;
+        private System.Windows.Forms.Button btn_clear;
+        private System.Windows.Forms.TextBox txtbx_id;
+        private System.Windows.Forms.Label lbl_ID;
+        private System.Windows.Forms.Label lbl_number;
+        private System.Windows.Forms.TextBox txtbx_number;
     }
 }
