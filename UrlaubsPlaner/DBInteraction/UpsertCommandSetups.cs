@@ -24,6 +24,7 @@ namespace UrlaubsPlaner.DBInteraction
             sqlCommand.Parameters.AddWithValue(nameof(absence.Employee), absence.Employee.EmployeeId);
             sqlCommand.Parameters.AddWithValue(nameof(absence.FromDate), absence.FromDate);
             sqlCommand.Parameters.AddWithValue(nameof(absence.Reason), absence.Reason);
+            sqlCommand.Parameters.AddWithValue(nameof(absence.ToDate), absence.ToDate);
             return sqlCommand;
         }
 

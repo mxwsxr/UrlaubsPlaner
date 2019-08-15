@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.gp_calendar = new System.Windows.Forms.GroupBox();
             this.listview_event = new System.Windows.Forms.ListView();
+            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.MitarbeiterNr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Vorname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nachname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Typ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -46,7 +46,6 @@
             this.cbx_absencetype = new System.Windows.Forms.ComboBox();
             this.employeebtn = new System.Windows.Forms.Button();
             this.absenceTypebtn = new System.Windows.Forms.Button();
-            this.warningLabel = new System.Windows.Forms.Label();
             this.label_absencetype = new System.Windows.Forms.Label();
             this.richtextbox_reason = new System.Windows.Forms.RichTextBox();
             this.label_reason = new System.Windows.Forms.Label();
@@ -57,7 +56,10 @@
             this.textbox_firstname = new System.Windows.Forms.TextBox();
             this.button_cancel = new System.Windows.Forms.Button();
             this.button_save = new System.Windows.Forms.Button();
-            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
+            this.lbl_from = new System.Windows.Forms.Label();
+            this.lbl_to = new System.Windows.Forms.Label();
+            this.dtp_from = new System.Windows.Forms.DateTimePicker();
+            this.dtp_to = new System.Windows.Forms.DateTimePicker();
             this.gp_calendar.SuspendLayout();
             this.gp_input.SuspendLayout();
             this.SuspendLayout();
@@ -75,8 +77,8 @@
             // listview_event
             // 
             this.listview_event.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Id,
             this.Nr,
-            this.MitarbeiterNr,
             this.Vorname,
             this.Nachname,
             this.Typ,
@@ -92,15 +94,17 @@
             this.listview_event.View = System.Windows.Forms.View.Details;
             this.listview_event.SelectedIndexChanged += new System.EventHandler(this.Listview_event_SelectedIndexChanged);
             // 
+            // Id
+            // 
+            this.Id.DisplayIndex = 6;
+            this.Id.Text = "Id";
+            this.Id.Width = 80;
+            // 
             // Nr
             // 
-            this.Nr.DisplayIndex = 6;
+            this.Nr.DisplayIndex = 0;
             this.Nr.Text = "Nr";
-            // 
-            // MitarbeiterNr
-            // 
-            this.MitarbeiterNr.DisplayIndex = 0;
-            this.MitarbeiterNr.Text = "MitarbeiterNr";
+            this.Nr.Width = 36;
             // 
             // Vorname
             // 
@@ -129,6 +133,10 @@
             // 
             // gp_input
             // 
+            this.gp_input.Controls.Add(this.dtp_to);
+            this.gp_input.Controls.Add(this.dtp_from);
+            this.gp_input.Controls.Add(this.lbl_to);
+            this.gp_input.Controls.Add(this.lbl_from);
             this.gp_input.Controls.Add(this.btn_clear);
             this.gp_input.Controls.Add(this.lbl_id);
             this.gp_input.Controls.Add(this.txtbx_id);
@@ -136,7 +144,6 @@
             this.gp_input.Controls.Add(this.cbx_absencetype);
             this.gp_input.Controls.Add(this.employeebtn);
             this.gp_input.Controls.Add(this.absenceTypebtn);
-            this.gp_input.Controls.Add(this.warningLabel);
             this.gp_input.Controls.Add(this.label_absencetype);
             this.gp_input.Controls.Add(this.richtextbox_reason);
             this.gp_input.Controls.Add(this.label_reason);
@@ -147,7 +154,6 @@
             this.gp_input.Controls.Add(this.textbox_firstname);
             this.gp_input.Controls.Add(this.button_cancel);
             this.gp_input.Controls.Add(this.button_save);
-            this.gp_input.Controls.Add(this.monthCalendar);
             this.gp_input.Location = new System.Drawing.Point(465, 27);
             this.gp_input.Name = "gp_input";
             this.gp_input.Size = new System.Drawing.Size(546, 880);
@@ -169,7 +175,7 @@
             // lbl_id
             // 
             this.lbl_id.AutoSize = true;
-            this.lbl_id.Location = new System.Drawing.Point(312, 127);
+            this.lbl_id.Location = new System.Drawing.Point(65, 185);
             this.lbl_id.Name = "lbl_id";
             this.lbl_id.Size = new System.Drawing.Size(21, 13);
             this.lbl_id.TabIndex = 20;
@@ -179,7 +185,7 @@
             // txtbx_id
             // 
             this.txtbx_id.Enabled = false;
-            this.txtbx_id.Location = new System.Drawing.Point(400, 127);
+            this.txtbx_id.Location = new System.Drawing.Point(331, 185);
             this.txtbx_id.Name = "txtbx_id";
             this.txtbx_id.Size = new System.Drawing.Size(121, 20);
             this.txtbx_id.TabIndex = 19;
@@ -188,7 +194,7 @@
             // cbx_employee
             // 
             this.cbx_employee.FormattingEnabled = true;
-            this.cbx_employee.Location = new System.Drawing.Point(400, 68);
+            this.cbx_employee.Location = new System.Drawing.Point(331, 69);
             this.cbx_employee.Name = "cbx_employee";
             this.cbx_employee.Size = new System.Drawing.Size(121, 21);
             this.cbx_employee.TabIndex = 18;
@@ -197,7 +203,7 @@
             // cbx_absencetype
             // 
             this.cbx_absencetype.FormattingEnabled = true;
-            this.cbx_absencetype.Location = new System.Drawing.Point(400, 99);
+            this.cbx_absencetype.Location = new System.Drawing.Point(331, 100);
             this.cbx_absencetype.Name = "cbx_absencetype";
             this.cbx_absencetype.Size = new System.Drawing.Size(121, 21);
             this.cbx_absencetype.TabIndex = 17;
@@ -222,19 +228,10 @@
             this.absenceTypebtn.UseVisualStyleBackColor = true;
             this.absenceTypebtn.Click += new System.EventHandler(this.AbsenceTypebtn_Click);
             // 
-            // warningLabel
-            // 
-            this.warningLabel.AutoSize = true;
-            this.warningLabel.ForeColor = System.Drawing.Color.Red;
-            this.warningLabel.Location = new System.Drawing.Point(294, 163);
-            this.warningLabel.Name = "warningLabel";
-            this.warningLabel.Size = new System.Drawing.Size(0, 13);
-            this.warningLabel.TabIndex = 14;
-            // 
             // label_absencetype
             // 
             this.label_absencetype.AutoSize = true;
-            this.label_absencetype.Location = new System.Drawing.Point(312, 99);
+            this.label_absencetype.Location = new System.Drawing.Point(65, 100);
             this.label_absencetype.Name = "label_absencetype";
             this.label_absencetype.Size = new System.Drawing.Size(28, 13);
             this.label_absencetype.TabIndex = 12;
@@ -260,7 +257,7 @@
             // label_employeeNumber
             // 
             this.label_employeeNumber.AutoSize = true;
-            this.label_employeeNumber.Location = new System.Drawing.Point(291, 70);
+            this.label_employeeNumber.Location = new System.Drawing.Point(44, 71);
             this.label_employeeNumber.Name = "label_employeeNumber";
             this.label_employeeNumber.Size = new System.Drawing.Size(73, 13);
             this.label_employeeNumber.TabIndex = 8;
@@ -269,7 +266,7 @@
             // label_lastname
             // 
             this.label_lastname.AutoSize = true;
-            this.label_lastname.Location = new System.Drawing.Point(302, 44);
+            this.label_lastname.Location = new System.Drawing.Point(55, 45);
             this.label_lastname.Name = "label_lastname";
             this.label_lastname.Size = new System.Drawing.Size(62, 13);
             this.label_lastname.TabIndex = 7;
@@ -278,7 +275,7 @@
             // label_firstname
             // 
             this.label_firstname.AutoSize = true;
-            this.label_firstname.Location = new System.Drawing.Point(312, 18);
+            this.label_firstname.Location = new System.Drawing.Point(65, 19);
             this.label_firstname.Name = "label_firstname";
             this.label_firstname.Size = new System.Drawing.Size(52, 13);
             this.label_firstname.TabIndex = 6;
@@ -287,7 +284,7 @@
             // textbox_lastname
             // 
             this.textbox_lastname.Enabled = false;
-            this.textbox_lastname.Location = new System.Drawing.Point(400, 41);
+            this.textbox_lastname.Location = new System.Drawing.Point(331, 42);
             this.textbox_lastname.Name = "textbox_lastname";
             this.textbox_lastname.Size = new System.Drawing.Size(121, 20);
             this.textbox_lastname.TabIndex = 4;
@@ -295,7 +292,7 @@
             // textbox_firstname
             // 
             this.textbox_firstname.Enabled = false;
-            this.textbox_firstname.Location = new System.Drawing.Point(400, 15);
+            this.textbox_firstname.Location = new System.Drawing.Point(331, 16);
             this.textbox_firstname.Name = "textbox_firstname";
             this.textbox_firstname.Size = new System.Drawing.Size(121, 20);
             this.textbox_firstname.TabIndex = 3;
@@ -318,12 +315,39 @@
             this.button_save.TabIndex = 1;
             this.button_save.Text = "Speichern";
             this.button_save.UseVisualStyleBackColor = true;
+            this.button_save.Click += new System.EventHandler(this.Button_save_Click);
             // 
-            // monthCalendar
+            // lbl_from
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(12, 15);
-            this.monthCalendar.Name = "monthCalendar";
-            this.monthCalendar.TabIndex = 0;
+            this.lbl_from.AutoSize = true;
+            this.lbl_from.Location = new System.Drawing.Point(68, 131);
+            this.lbl_from.Name = "lbl_from";
+            this.lbl_from.Size = new System.Drawing.Size(29, 13);
+            this.lbl_from.TabIndex = 22;
+            this.lbl_from.Text = "Von:";
+            // 
+            // lbl_to
+            // 
+            this.lbl_to.AutoSize = true;
+            this.lbl_to.Location = new System.Drawing.Point(68, 155);
+            this.lbl_to.Name = "lbl_to";
+            this.lbl_to.Size = new System.Drawing.Size(24, 13);
+            this.lbl_to.TabIndex = 23;
+            this.lbl_to.Text = "Bis:";
+            // 
+            // dtp_from
+            // 
+            this.dtp_from.Location = new System.Drawing.Point(331, 131);
+            this.dtp_from.Name = "dtp_from";
+            this.dtp_from.Size = new System.Drawing.Size(200, 20);
+            this.dtp_from.TabIndex = 24;
+            // 
+            // dtp_to
+            // 
+            this.dtp_to.Location = new System.Drawing.Point(331, 158);
+            this.dtp_to.Name = "dtp_to";
+            this.dtp_to.Size = new System.Drawing.Size(200, 20);
+            this.dtp_to.TabIndex = 25;
             // 
             // Form_Main
             // 
@@ -354,26 +378,28 @@
         private System.Windows.Forms.TextBox textbox_firstname;
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.Button button_save;
-        private System.Windows.Forms.MonthCalendar monthCalendar;
         private System.Windows.Forms.ListView listview_event;
         private System.Windows.Forms.Label label_reason;
         private System.Windows.Forms.RichTextBox richtextbox_reason;
         private System.Windows.Forms.Label label_absencetype;
-        private System.Windows.Forms.ColumnHeader MitarbeiterNr;
+        private System.Windows.Forms.ColumnHeader Nr;
         private System.Windows.Forms.ColumnHeader Vorname;
         private System.Windows.Forms.ColumnHeader Nachname;
         private System.Windows.Forms.ColumnHeader Typ;
         private System.Windows.Forms.ColumnHeader Von;
         private System.Windows.Forms.ColumnHeader Bis;
-        private System.Windows.Forms.Label warningLabel;
         private System.Windows.Forms.Button employeebtn;
         private System.Windows.Forms.Button absenceTypebtn;
         private System.Windows.Forms.ComboBox cbx_absencetype;
         private System.Windows.Forms.ComboBox cbx_employee;
-        private System.Windows.Forms.ColumnHeader Nr;
+        private System.Windows.Forms.ColumnHeader Id;
         private System.Windows.Forms.Label lbl_id;
         private System.Windows.Forms.TextBox txtbx_id;
         private System.Windows.Forms.Button btn_clear;
+        private System.Windows.Forms.DateTimePicker dtp_from;
+        private System.Windows.Forms.Label lbl_to;
+        private System.Windows.Forms.Label lbl_from;
+        private System.Windows.Forms.DateTimePicker dtp_to;
     }
 }
 

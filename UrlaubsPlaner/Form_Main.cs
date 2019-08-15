@@ -53,6 +53,7 @@ namespace UrlaubsPlaner
             listview_event.Items.AddRange(Absences.Select(x
                 => new ListViewItem(new string[]
                 {
+                    x.AbsenceID.ToString(),
                     x.Employee.EmployeeNumber.ToString(),
                     x.Employee.Firstname,
                     x.Employee.Lastname,
@@ -132,6 +133,9 @@ namespace UrlaubsPlaner
                 txtbx_id.Text = selectedItem.AbsenceID.ToString();
                 cbx_employee.SelectedItem = Employees.Find(x => x.EmployeeId == selectedItem.Employee.EmployeeId);
                 cbx_absencetype.SelectedItem = AbsenceTypes.Find(x => x.AbsenceTypeId == selectedItem.AbsenceType.AbsenceTypeId);
+                dtp_from.Value = selectedItem.FromDate;
+                dtp_to.Value = selectedItem.ToDate;
+                richtextbox_reason.Text = selectedItem.Reason;
 
                 ToggleInsertOrUpdate(true);
             }
@@ -163,6 +167,41 @@ namespace UrlaubsPlaner
             txtbx_id.Text = string.Empty;
             cbx_employee.SelectedItem = null;
             cbx_absencetype.SelectedItem = null;
+            richtextbox_reason.Text = string.Empty;
+            dtp_from.Value = (DateTime.Now);
+            dtp_to.Value = (DateTime.Now);
+        }
+
+        private void Button_save_Click(object sender, EventArgs e)
+        {
+            DataBaseConnection.UpsertAbsence(GetCurrentAbsence(), IsInsert);
+            UpdateAllData();
+        }
+
+        private Absence GetCurrentAbsence()
+        {
+            if (IsInsert)
+            {
+                return new Absence()
+                {
+                    AbsenceID = Guid.NewGuid(),
+                    AbsenceType = cbx_absencetype.SelectedItem as AbsenceType,
+                    Employee = cbx_employee.SelectedItem as Employee,
+                    FromDate = dtp_from.Value,
+                    ToDate = dtp_to.Value,
+                    Reason = richtextbox_reason.Text
+                };
+            }
+            else
+            {
+                Absence selected = Absences.Find(x => x.AbsenceID.ToString() == txtbx_id.Text);
+                selected.AbsenceType = cbx_absencetype.SelectedItem as AbsenceType;
+                selected.Employee = cbx_employee.SelectedItem as Employee;
+                selected.FromDate = dtp_from.Value;
+                selected.ToDate = dtp_to.Value;
+                selected.Reason = richtextbox_reason.Text;
+                return selected;
+            }
         }
     }
 }
